@@ -20,6 +20,7 @@
 					    <div class="col-sm-10">
 					      <input type="text" class="form-control" name="title" id="title" placeholder="Enter title">
 					        <span class="text-danger"><?php echo form_error('title'); ?> </span>
+					        
 					    </div>
 					  
 					  </div>

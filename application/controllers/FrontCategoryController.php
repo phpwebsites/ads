@@ -56,15 +56,21 @@
           $this->form_validation->set_rules('subcategory', 'SubCategory', 'required');
           $this->form_validation->set_rules('price', 'Price', 'required');
           $this->form_validation->set_rules('payment_status', 'Paymentstatus', 'required');
-          print_r($_FILES['image']['name']);exit;
-          if(empty($_FILES['image']['name']))
-          {
-              $this->form_validation->set_rules('image', 'Ad image', 'required');
-          }
+           //$this->form_validation->set_rules('image', 'Image', 'required');
+         
           if ($this->form_validation->run() == FALSE)
           {
 
+             if (!$this->upload->do_upload('image'))
+             {
+                 //echo "test"; exit;
+                $this->form_validation->set_rules('image', 'Image', 'required');    
+                $this->form_validation->run();    
+                  
+                  //$this->load->view('postanad',$data);
+             }
              $this->captcha_errorsetting(); 
+             
              
           }
           else
@@ -87,9 +93,12 @@
                              $this->upload->initialize($this->set_upload_options());
                              if (!$this->upload->do_upload('image'))
                              {
-              
-                                 $data['fileerror'] = $this->upload->display_errors();
-                                 $this->load->view('postanad',$data);
+                                 // exit;
+                                 //$data['fileerror'] = $this->upload->display_errors();
+                                 //$this->load->view('postanad',$data);
+                                 $this->form_validation->set_rules('image', 'Image', 'required');    
+                                 $this->form_validation->run();   
+                                 $this -> captcha_setting();
                              }
                              else
                              {
