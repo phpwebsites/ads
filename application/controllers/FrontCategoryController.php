@@ -56,20 +56,11 @@
           $this->form_validation->set_rules('subcategory', 'SubCategory', 'required');
           $this->form_validation->set_rules('price', 'Price', 'required');
           $this->form_validation->set_rules('payment_status', 'Paymentstatus', 'required');
-           //$this->form_validation->set_rules('image', 'Image', 'required');
-         
+          $this->form_validation->set_rules('image', 'Ad', 'callback_file_selected_test');
           if ($this->form_validation->run() == FALSE)
           {
 
-             if (!$this->upload->do_upload('image'))
-             {
-                 //echo "test"; exit;
-                $this->form_validation->set_rules('image', 'Image', 'required');    
-                $this->form_validation->run();    
-                  
-                  //$this->load->view('postanad',$data);
-             }
-             $this->captcha_errorsetting(); 
+                $this->captcha_errorsetting(); 
              
              
           }
@@ -122,7 +113,24 @@
           } 
           
       }
-      // ############## captcha code start ###########
+
+// ############## Call Back Start ###################
+  public function file_selected_test()
+  {
+      // echo array_sum($_FILES['image']['name']); exit;
+      $errors = array_filter($_FILES['image']['name']);
+      $this->form_validation->set_message('file_selected_test', 'Please Upload Your ads');
+      if (! empty($errors)) 
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+  }
+
+// ############## captcha code start ###########
        public function captcha_setting()
        {
                 $letters = array('0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
