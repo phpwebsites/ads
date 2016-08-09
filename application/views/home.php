@@ -303,161 +303,10 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
 </section>
 <?php $this->load->view('includes/footer.php'); ?>
 <!--###############Bootstrap Models start############-->
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="signup">
-  <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title text-center" style="font-size: 25px;">Sing Up</h4>
-      </div> <!-- modal header end -->
- 		<div class="row formdown">
-           <div class="col-xs-12">
-							
-                     <?php 
-					    $formattributes = array('class' => 'form-horizontal', 'id' => 'signup');
-					    echo form_open('UserController/add_user',$formattributes); 
-					 ?>
-                        <div class="form-group">
-                          <div class="col-xs-12 text-center text-success">
-                              <h4><?php echo $this->session->flashdata('signupmsg'); ?></h4>
-                          </div>
-                        </div>
-                         <div class="form-group">
-                           <label class="control-label col-sm-4" for="email">User Name:</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" name="username" id="username" >
-                            <span class="text-danger"><?php echo form_error('username'); ?></span>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label col-sm-4" for="email">Email:</label>
-                          <div class="col-sm-8">
-                            <input type="email" class="form-control" name="email" id="email" >
-                            <span class="text-danger"><?php echo form_error('email'); ?></span>
-                          </div>
-                        </div>
-                       <div class="form-group">
-                          <label class="control-label col-sm-4" for="pwd">Password:</label>
-                          <div class="col-sm-8">          
-                            <input type="password" class="form-control" name="password" id="password" >
-                            <span class="text-danger"><?php echo form_error('password'); ?></span>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label col-sm-4" for="pwd">Conform Password:</label>
-                          <div class="col-sm-8">          
-                            <input type="password" class="form-control" name="conformpassword" id="conformpassword">
-                            <span class="text-danger"><?php echo form_error('conformpassword'); ?></span>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label col-sm-4" for="pwd">Phone Number:</label>
-                          <div class="col-sm-8">          
-                            <input type="text" class="form-control" name="phoneno" id="phoneno">
-                            <span class="text-danger"><?php echo form_error('phoneno'); ?></span>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label col-sm-4" for="pwd">Country:</label>
-                          <div class="col-sm-8">   
-                            <?php
-                               $ci_ins =& get_instance();
-                               $countrydata = $ci_ins->getCountry();
-                            ?>       
-                            <select class="form-control" name="country" id="country">
-                               <option value="">-----Select Country-----</option>
-                              <?php foreach ($countrydata as $country_data ) { ?>
-                                  <option value="<?php echo $country_data->id;  ?>"> <?php echo $country_data->name;  ?> </option>
-                              <?php } ?>
-                           </select>
-                            <span class="text-danger"><?php echo form_error('country'); ?></span>
-                          </div>
-                        </div>
-                         <div class="form-group">
-                          <label class="control-label col-sm-4" for="pwd">State:</label>
-                          <div class="col-sm-8">          
-                            <select class="form-control" name="state" id="state_id">
-                              <option value="">----Select State----</option>
-                            </select>
-                            <span class="text-danger"><?php echo form_error('state'); ?></span>
-                          </div>
-                        </div>
-                         <div class="form-group">
-                          <label class="control-label col-sm-4" for="pwd">City:</label>
-                          <div class="col-sm-8">          
-                            <select class="form-control" name="city" id="city_id" >
-                              <option value="">----Select City---- </option>
-                            </select>
-                            <span class="text-danger"><?php echo form_error('city'); ?></span>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label col-sm-4" for="pwd">Pincode:</label>
-                          <div class="col-sm-8">          
-                            <input type="text" name="pincode" id="pincode" class="form-control">
-                             <span class="text-danger"><?php echo form_error('pincode'); ?></span>
-                          </div>
-                        </div>
-                        <div class="form-group">        
-                          <div class="col-sm-offset-4 col-sm-4">
-                            <input type="hidden" name="role" id="role" value="3">
-                            <button type="submit" class="btn btn-default">Submit</button>
-                          </div>
-                        
-                        </div>
-					<?php echo form_close(); ?>             
-           </div>
-        </div>
-    </div>
-  </div>
-</div>
+
 
 <!-- ########## Login ########## -->
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="login_modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title text-center">Login</h4>
-      </div> <!-- modal header end -->
- 		<div class="row formdown">
-           <div class="col-xs-12">
-                  
-                     <?php 
-					    $attributes =array("class" => "form-horizontal", "id" => "login", "role" => "form" );
-					    echo form_open('UserController/login_user',$attributes);
-					 ?>
-                        <div class="form-group">
-                        	<div class="col-xs-12 text-center">
-                                <?php echo $this->session->flashdata('loginerror_msg'); ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label col-sm-4" for="email">Email:</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" name="email" id="email" placeholder="Enter email">
-                            <span class="text-danger"><?php echo form_error('email'); ?></span>
-                          </div>
-                        </div>
-                       <div class="form-group">
-                          <label class="control-label col-sm-4" for="pwd">Password:</label>
-                          <div class="col-sm-8">          
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
-                            <span class="text-danger"><?php echo form_error('password'); ?></span>
-                          </div>
-                       </div>
-                       <div class="form-group">        
-                          <div class="col-sm-offset-4 col-sm-2">
-                            <input type="submit" name="login" id="login" class="btn btn-default" value="Login" />
-                          </div>
-                          <div class="col-sm-6">
-                             Are you new user? register <a href="javascript:void(o)" id="register1">Here</a>
-                          </div>
-                      </div>
-                     
-                    <?php echo form_close(); ?>
-             </div>
-          </div>
+
 <!-- ####### Login end ############ -->
 <!--###############Bootstrap Models end##############-->
   
@@ -538,101 +387,101 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
         autoplaySpeed: 2000,
       });
 	  
-      /*	  register*/
-	   $("#register").click(function(){
-		  $("#signup").modal("show"); 
+  //     /*	  register*/
+	 //   $("#register").click(function(){
+		//   $("#signup").modal("show"); 
 		 
-	   });
+	 //   });
 	   
-	   $("#signin").click(function(){
+	 //   $("#signin").click(function(){
 
-		  $("#login_modal").modal("show"); 
-	   });
+		//   $("#login_modal").modal("show"); 
+	 //   });
 	   
-	   $("#register1").click(function(){
+	 //   $("#register1").click(function(){
 		    
-		    $("#signup").modal("show"); 
-			  $("#login_modal").modal("hide"); 
+		//     $("#signup").modal("show"); 
+		// 	  $("#login_modal").modal("hide"); 
 			
-	   });
+	 //   });
 	   
 	  
-		<?php
-		   if(validation_errors() != false)
-		   { 
-			   if($this->router->fetch_method() == "login_user")
-			   {
-		?>
-		    		$("#login_modal").modal("show"); 
+		// <?php
+		//    if(validation_errors() != false)
+		//    { 
+		// 	   if($this->router->fetch_method() == "login_user")
+		// 	   {
+		// ?>
+		//     		$("#login_modal").modal("show"); 
 		           	   
-		<?php	   
-		       }
-		   }
-		?>
+		// <?php	   
+		//        }
+		//    }
+		// ?>
 		
-		<?php
-        //echo validation_errors(); exit;
-		   if(validation_errors() != false)
-		   { 
-          //echo "test"; exit;
-			   if($this->router->fetch_method() == "add_user")
-			   {
-		?>
-		    		$("#signup").modal("show"); 
+		// <?php
+  //       //echo validation_errors(); exit;
+		//    if(validation_errors() != false)
+		//    { 
+  //         //echo "test"; exit;
+		// 	   if($this->router->fetch_method() == "add_user")
+		// 	   {
+		// ?>
+		//     		$("#signup").modal("show"); 
 		           	   
-		<?php	   
-		       }
-		   }
-		?>
+		// <?php	   
+		//        }
+		//    }
+		// ?>
 	   
-	   <?php
-	      if($this->session->flashdata('loginerror_msg') != "")
-		  {
-	   ?>
-	          $("#login_modal").modal("show"); 
-	   <?php
-		  }
-	   ?>
+	 //   <?php
+	 //      if($this->session->flashdata('loginerror_msg') != "")
+		//   {
+	 //   ?>
+	 //          $("#login_modal").modal("show"); 
+	 //   <?php
+		//   }
+	 //   ?>
 
-     <?php
-        if($this->session->flashdata('signupmsg') != ""){
-     ?>
-	         $("#signup").modal("show"); 
-     <?php
-      }
-     ?>
+  //    <?php
+  //       if($this->session->flashdata('signupmsg') != ""){
+  //    ?>
+	 //         $("#signup").modal("show"); 
+  //    <?php
+  //     }
+  //    ?>
 
-     $("#country").change(function(){
-              var country_id = $("#country").val();
-                       //alert(country_id);
-                       $.ajax({
-                            type: "POST",
-                            url: '<?php echo site_url('country/getstate').'/'; ?>'+country_id,
-                            //data: id='cat_id',
-                            success: function(data){
-                                //alert(data);
-                              $('#state_id').html(data);
-                        },
-                       });
+  //    $("#country").change(function(){
+  //             var country_id = $("#country").val();
+  //                      //alert(country_id);
+  //                      $.ajax({
+  //                           type: "POST",
+  //                           url: '<?php //echo site_url('country/getstate').'/'; ?>'+country_id,
+  //                           //data: id='cat_id',
+  //                           success: function(data){
+  //                               //alert(data);
+  //                             $('#state_id').html(data);
+  //                       },
+  //                      });
 
-          });
+  //         });
 
-          $("#state_id").change(function(){
+  //         $("#state_id").change(function(){
 
-                       var state_id = $("#state_id").val();
+  //                      var state_id = $("#state_id").val();
                        
-                       $.ajax({
-                            type: "POST",
-                            url: '<?php echo site_url('state/getcites').'/'; ?>'+state_id,
-                            //data: id='cat_id',
-                            success: function(data){
+  //                      $.ajax({
+  //                           type: "POST",
+  //                           url: '<?php //echo site_url('state/getcites').'/'; ?>'+state_id,
+  //                           //data: id='cat_id',
+  //                           success: function(data){
                                 
-                              $('#city_id').html(data);
-                        },
-                       });
+  //                           $('#city_id').html(data);
+  //                       },
+  //                      });
 
 
-          });
+  //         });
      
       
      

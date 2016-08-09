@@ -13,6 +13,10 @@
    		      $this->load->library('session');
             $this->load->model('adsimagesmodel');
             $this->load->model('adsmodel');
+            $this->load->model('countrymodel');
+            $this->load->model('statemodel');
+
+            
             //$this->load->helper('captcha');
             
     }
@@ -102,8 +106,8 @@
                         }
                         $fileName = implode(',',$images);
                         $this->adsimagesmodel->upload_image($fileName,$last_insertid);
-                        echo "<script type='text/javascript'> alert('Your form successfully submitted'); </script>";
-                        $this->load->view('formsuccess');
+                        //$this->load->view('formsuccess');
+                        redirect("category/getsubcate/".$this->input->post('category'));
                 }
                 else 
                 {
@@ -229,5 +233,27 @@
          $config['overwrite'] =  TRUE;
          return $config;
     }
+
+    public function getCountry()
+    {
+        $result = $this->countrymodel->getAll();
+        return $result;
+    }
+
+    public function getstates()
+    {
+       $id = $this->uri->segment(2);
+       //echo $id; exit;
+       $data['state'] = $this->statemodel->getAllStates($id);
+       $this->load->view('admin/country/getstates',$data);
+    }
+
+     public function getcitys()
+     {
+       $id = $this->uri->segment(2);
+       //echo $id; exit;
+       $data['state'] = $this->statemodel->getAllCites($id);
+       $this->load->view('admin/country/getstates',$data);
+     }
   }
 ?>

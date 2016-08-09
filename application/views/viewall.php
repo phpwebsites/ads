@@ -12,7 +12,7 @@
 				        ?>
 				        <?php foreach($categories as $categories_main){ ?>
 				        	<li <?php if($categories_main->id == $this->uri->segment(3)){ ?> class="active"  <?php } ?> >
-				        	   <a href="<?php echo base_url('category/getsubcate/'.$categories_main -> id); ?>" id="categoryhover<?php echo $i; ?>"><?php echo $categories_main->name ?><span class="right-arrow<?php echo $i; ?>" style="display:none;" ><image src="<?php echo base_url(); ?>/assets/images/liststylearrow.png" /></span></a>
+				        	   <a href="<?php echo base_url('category/getsubcate/'.$categories_main -> id); ?>" id="categoryhover<?php echo $i; ?>"><?php echo $categories_main->name ?><span class="right-arrow<?php echo $i; ?> glyphicon glyphicon-menu-right" style="display:none;" > </span></a>
 				        	</li>
 				        <?php $i++; } ?>
 				       
@@ -28,10 +28,10 @@
 						</div>
 						<div class="row allcategories">
 						 <div class="col-xs-4">
-						 	<ul class="list-unstyled listbgimage">
+						 	<ul class="list-unstyled">
 						 	   <?php foreach($subcategories as $subcategories_data ){ ?>
 
-					  			   <li> <a href="#" class="subcat"><?php echo $subcategories_data->name; ?> </a><lable class="subcat">(2)</lable></li>
+					  			   <li><i class="glyphicon glyphicon-menu-right"></i> <a href="#" ><?php echo $subcategories_data->name; ?> </a><lable>(2)</lable></li>
 
 					  		   <?php } ?>
 					  			

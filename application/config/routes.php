@@ -110,6 +110,8 @@ $route['postad'] = "FrontCategoryController/postanad";
 $route['postad/create'] = "FrontCategoryController/postanadcreate";
 $route['postad/captcharefresh'] = "FrontCategoryController/captcha_refresh";
 $route['postad/subcategory/:any'] = "FrontCategoryController/postanadsubcategory";
+$route['getfrontstates/:any'] = "FrontCategoryController/getstates";
+$route['getfrontcites/:any'] = "FrontCategoryController/getcitys";
 /*#################### Postanad end ################### */
 
 /* ############### addecription start #################### */

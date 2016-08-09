@@ -105,7 +105,8 @@
 	  public function getstates()
 	  {
 	  	  $id = $this->uri->segment(3);
-	  	  $data['state'] =$this->statemodel->getAllStates($id);
+	  	  // echo $id; exit;
+	  	  $data['state'] = $this->statemodel->getAllStates($id);
 	  	  $this->load->view('admin/country/getstates',$data);
 
 	  }
