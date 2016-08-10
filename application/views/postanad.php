@@ -95,6 +95,7 @@
 					    <label class="control-label col-sm-2" for="pwd">Price:</label>
 					    <div class="col-sm-10"> 
 					      <input type="text" name="price" id="price" class="form-control">
+					      
 					      <span class="text-danger"><?php echo form_error('price'); ?></span>
 					    </div>
 					    
@@ -117,7 +118,8 @@
 					      <img src="<?php echo asset_url(); ?>/images/refresh.png" class="refresh">
 					    </a>
 					    </div>
-					  </div>
+					 </div>
+					<input type="hidden" name="user_id" id="user_id" value="<?php echo $this->session->userdata('user_id'); ?>">
 					  <div class="form-group"> 
 					    <div class="col-sm-offset-2 col-sm-10">
 					      <button type="submit" class="btn btn-default">Submit</button>

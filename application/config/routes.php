@@ -112,6 +112,7 @@ $route['postad/captcharefresh'] = "FrontCategoryController/captcha_refresh";
 $route['postad/subcategory/:any'] = "FrontCategoryController/postanadsubcategory";
 $route['getfrontstates/:any'] = "FrontCategoryController/getstates";
 $route['getfrontcites/:any'] = "FrontCategoryController/getcitys";
+$route['getads/:any'] = "FrontCategoryController/getads";
 /*#################### Postanad end ################### */
 
 /* ############### addecription start #################### */

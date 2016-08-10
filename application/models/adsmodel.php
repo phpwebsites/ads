@@ -13,6 +13,12 @@
     {
 	   $this->db->insert('ads',$data);
     }
-		
+
+    public function getads($subcat_id)
+    {
+	  $this->db->where('subcategory_id',$subcat_id);
+	  $query = $this->db->get('ads');
+	  return $query->result();		
+    }
   }
 ?>

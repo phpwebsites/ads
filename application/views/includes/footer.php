@@ -316,7 +316,7 @@
                             url: '<?php echo site_url('getfrontstates').'/'; ?>'+country_id,
                             //data: id='cat_id',
                             success: function(data){
-                              alert(data);
+                              //alert(data);
                               $('#state_id').html(data);
                         },
                        });
@@ -329,7 +329,7 @@
                        
                        $.ajax({
                             type: "POST",
-                            url: '<?php echo site_url('state/getcites').'/'; ?>'+state_id,
+                            url: '<?php echo site_url('getfrontcites').'/'; ?>'+state_id,
                             //data: id='cat_id',
                             success: function(data){
                                 

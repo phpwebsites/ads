@@ -15,11 +15,10 @@
             $this->load->model('adsmodel');
             $this->load->model('countrymodel');
             $this->load->model('statemodel');
-
+            $this->load->model('citymodel');
+            $this->load->helper('date');
             
-            //$this->load->helper('captcha');
-            
-    }
+   }
 
       public function getmaincategories()
       {
@@ -53,7 +52,7 @@
       public function postanadcreate()
       {
 
-         $postadval = array('title' => $this->input->post('title'),'description' => $this->input->post('desc'),'category_id' => $this->input->post('category'),'subcategory_id' => $this->input->post('subcategory'),'price' => $this->input->post('price'),'payment_status' => $this->input->post('payment_status'));
+         $postadval = array('title' => $this->input->post('title'),'description' => $this->input->post('desc'),'category_id' => $this->input->post('category'),'subcategory_id' => $this->input->post('subcategory'),'price' => $this->input->post('price'),'payment_status' => $this->input->post('payment_status'),'user_id' => $this->input->post('user_id'));
           $this->form_validation->set_rules('title', 'Title', 'required');
           $this->form_validation->set_rules('desc', 'description', 'required');
           $this->form_validation->set_rules('category', 'Category', 'required');
@@ -252,8 +251,15 @@
      {
        $id = $this->uri->segment(2);
        //echo $id; exit;
-       $data['state'] = $this->statemodel->getAllCites($id);
-       $this->load->view('admin/country/getstates',$data);
+       $data['cites'] = $this->citymodel->getAllCites($id);
+       $this->load->view('admin/state/getcities',$data);
+     }
+
+     public function getads()
+     {
+        $id = $this->uri->segment(2);
+        $data['ads'] = $this->adsmodel->getads($id);
+        $this->load->view('showads' , $data);
      }
   }
 ?>

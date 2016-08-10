@@ -22,6 +22,12 @@
 			  }
 		  }
      }
-		
+
+    public function getimage ($id)
+    {
+    	   $this->db->where('id', $id);
+           $query = $this->db->get('adsimages'); //get all data from user_profiles table that belong to the respective user
+           return $query->row(); //return the data 
+    }
   }
 ?>

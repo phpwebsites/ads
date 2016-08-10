@@ -33,7 +33,15 @@
    				  </div>
    				  <div class="col-sm-4">
    				    <div class="text-center push-text">
-   				    	<p> <a href="" class="btn btn-theme btn-sm btn-min-block"> Postan add </a></p>	
+              <?php  if ($this->session->userdata('user_id')){ ?> 
+         				    	<p> 
+                        <a href="<?php echo base_url('postad'); ?>" class="btn btn-theme btn-sm btn-min-block"> Postan add </a>
+                      </p>	
+              <?php }else{ ?>
+                     <p> 
+                        <a href="javascript:void(0)" class="btn btn-theme btn-sm btn-min-block" onclick="alert('If you get the postanad before you should login or signup');"> Postan add </a>
+                     </p>  
+              <?php } ?>
    				    </div>
    				  	
    				  </div>
