@@ -17,6 +17,8 @@
             $this->load->model('statemodel');
             $this->load->model('citymodel');
             $this->load->helper('date');
+            $this->load->helper('timeinfo');
+            $this->load->model('usermodel');
             
    }
 
@@ -255,6 +257,7 @@
        $this->load->view('admin/state/getcities',$data);
      }
 
+     
      public function getads()
      {
         $id = $this->uri->segment(2);
