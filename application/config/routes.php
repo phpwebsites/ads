@@ -116,7 +116,7 @@ $route['getads/:any'] = "FrontCategoryController/getads";
 /*#################### Postanad end ################### */
 
 /* ############### addecription start #################### */
-$route['description'] = "AdDescriptionController/index";
+$route['description/:any'] = "AdDescriptionController/index";
 /* ############### addecription end #################### */
 
 $route['404_override'] = '';

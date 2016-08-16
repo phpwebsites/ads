@@ -20,5 +20,12 @@
 	  $query = $this->db->get('ads');
 	  return $query->result();		
     }
+
+    public function getdescads($adid)
+    {
+    	$this->db->where('id',$adid);
+    	$query = $this->db->get('ads');
+    	return $query->row();
+    }
   }
 ?>

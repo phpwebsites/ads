@@ -1,5 +1,6 @@
 <?php if(count($ads) > 0){ ?>
-	<?php foreach($ads as $ads_data ){ ?>
+	<?php foreach($ads as $ads_data){ ?>
+ <a href="<?php echo site_url('description/'.$ads_data->id); ?>" style="color:#4e4e4e;">
 	<div class="row adbg">
 		<div class="col-xs-4">
 		   <?php $data = $this->adsimagesmodel->getimage($ads_data->id);
@@ -22,7 +23,8 @@
   		    ?>
   		    </span>
 	    </div>
-	</div>
+   </div>
+  </a>
 	<?php } ?>
 <?php } else{ ?>
 	<div class="row adbg">
