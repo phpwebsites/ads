@@ -4,18 +4,20 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Newbiesoft Adds</title>
 	<!--<link rel="stylesheet" type="text/css" href="<?php /*echo asset_url();*/ ?>css/bootstrap.min.css">-->
-  	<link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/custom.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/animations.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/hover.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
-  	<link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>slick/slick.css">
-  	<link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>slick/slick-theme.css">
-  	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.eot" >
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" >
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.ttf" >
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.woff" >
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.woff2">
+  <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>slick/slick-theme.css">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.eot" >
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" >
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.ttf" >
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.woff" >
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.woff2">
+  <script type="text/javascript" src="<?php echo asset_url(); ?>js/jquery.min.js"></script>
+  <script type="text/javascript" src="<?php echo asset_url(); ?>js/bootstrap.js"></script>  
  
 </head>
 

@@ -1,24 +1,28 @@
 <?php
-  print_r($adresult);
+  //print_r($adresult);
 ?>
 <?php $this->load->view('includes/header') ?>
  <section>
  	<div class="container">
+ 	   <?php 
+ 	      $adci =& get_instance(); 
+ 	      $singleimage = $adci->getimage($adresult->id);
+ 	      //print_r($singleimage);
+ 	      $allimagedata = $adci->getAllAdimages($adresult->id);
+ 	      //print_r($allimagedata);exit;
+ 	   			
+ 	   ?>
  		<div class="row">
  		   <div class="col-xs-4">
  		      <div class="row">
- 		      	 <img src="<?php echo asset_url(); ?>/images/mobilead.png" style="width:95%;height:30%;"> 	
+ 		      	 <img src="<?php echo base_url(); ?>/uploads/<?php echo $singleimage->name;  ?>" style="width:95%;height:30%;"> 	
  		      </div>
  		      <div class="row">
+ 		      <?php foreach($allimagedata as $allimage_data ){ ?>
  		      	<div class="col-xs-3">
- 		      	   <img src="<?php echo asset_url(); ?>/images/mobilead.png" style="width:100%">
+ 		      	   <img src="<?php echo base_url(); ?>/uploads/<?php echo $allimage_data->name;  ?>" style="width:100%">
  		      	</div>
- 		      	<div class="col-xs-3">
- 		      	   <img src="<?php echo asset_url(); ?>/images/mobilead.png" style="width:100%">
- 		      	</div>
- 		      	<div class="col-xs-3">
- 		      	   <img src="<?php echo asset_url(); ?>/images/mobilead.png" style="width:100%">
- 		      	</div>
+ 		      <?php } ?>	
  		      		
  		      </div>
  		   	  
@@ -29,7 +33,7 @@
  		   	 	<p class="text-justify"><?php echo $adresult->description;  ?></p>
  		   	 </div>
  		   	 <div class="row">
- 		   	 	<div class="col-xs-4">
+ 		   	 	<div class="col-xs-2">
  		   	 		<img src="<?php echo asset_url(); ?>images/price_image.png" width="45">
  		   	 		<span style=" font-size: 18px;"><?php echo round($adresult->price,3);  ?></span>
  		   	 		
@@ -45,13 +49,13 @@
  		   	 	  $citydata = $cityci->getcity($userdata->city_id);
  		   	 	  //print_r($userdata);
  		   	 	?>
- 		   	 	<div class="col-xs-4">
+ 		   	 	<div class="col-xs-6">
  		   	 		<img src="<?php echo asset_url(); ?>images/location.png" width="45">
- 		   	 		<span style=" font-size: 17px;"><?php echo $countrydata->name; ?>,<?php echo $statedata->name; ?><?php echo $citydata->name; ?></span>
+ 		   	 		<span style=" font-size: 17px;"><?php echo $countrydata->name; ?>,<?php echo $statedata->name; ?>,<?php echo $citydata->name; ?></span>
  		   	 	</div>
  		   	 	<div class="col-xs-4">
  		   	 		<img src="<?php echo asset_url(); ?>images/phone.png" width="45">
- 		   	 		<span style=" font-size: 17px;">456878423665</span>
+ 		   	 		<span style=" font-size: 17px;"><?php echo $userdata->phoneno; ?></span>
  		   	 	</div>
  		   	 </div> 
  		   	 <div class="row">
@@ -66,12 +70,11 @@
 					    <bold><?php echo $userdata->name; ?></bold>
 					  </div>
 					  <div id="menu1" class="tab-pane fade text-left push-text">
-					     <ol class="list-group">
-					     	<li class="list-group-item">Lorumipsum</li>
-					     	<li class="list-group-item">Lorumipsum</li>
-					     	<li class="list-group-item">Lorumipsum</li>
-					     	<li class="list-group-item">Lorumipsum</li>
-					     </ol>
+					     <ol type="1">
+							  <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</li>
+							  <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </li>
+							  <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever </li>
+						 </ol>
 					  </div>
 					  
 					</div>   		
@@ -163,6 +166,4 @@
   </div>
  	
  </section>
-   
-
 <?php $this->load->view('includes/footer.php'); ?>

@@ -9,6 +9,7 @@
 	   		$this->load->model('countrymodel');
 	   		$this->load->model('statemodel');
 	   		$this->load->model('citymodel');
+	   		$this->load->model('adsimagesmodel');
 	   	}
 
 	   	public function index()
@@ -42,6 +43,18 @@
 	   		$data = $this->citymodel->getrow($ciid);
 	   		return $data;
 	   		
+	   	}
+
+	   	public function getimage($adimageid)
+	   	{
+	   		$singleimage = $this->adsimagesmodel->getimage($adimageid);
+	   		return $singleimage;
+	   	}
+
+	   	public function getAllAdimages($adimageid)
+	   	{
+	   		$data = $this->adsimagesmodel->getallimages($adimageid);
+	   		return $data;
 	   	}
 
 
