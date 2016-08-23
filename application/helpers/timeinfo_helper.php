@@ -3,7 +3,7 @@
      {
           
           $createdon = strtotime($createdon);
-          $time_difference = $createdon - time()  ;
+          $time_difference = time() - $createdon ;
           $seconds = $time_difference ;
           $minutes = round($time_difference / 60 );
           $hours = round($time_difference / 3600 );

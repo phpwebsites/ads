@@ -117,7 +117,21 @@ $route['getads/:any'] = "FrontCategoryController/getads";
 
 /* ############### addecription start #################### */
 $route['description/:any'] = "AdDescriptionController/index";
+$route['contactus'] = "ContentController/contactus";
+$route['blog'] = "ContentController/blog";
+$route['blogdesc'] = "ContentController/blogdesc";
 /* ############### addecription end #################### */
+
+/* ############### blog start #################### */
+$route['blog/show'] = "admin/BlogController/show";
+$route['blog/add'] = "admin/BlogController/add";
+$route['blog/insert'] = "admin/BlogController/insert";
+$route['blog/edit/:any'] = "admin/BlogController/edit"; 
+$route['blog/update/:any'] = "admin/BlogController/updatecreate";
+$route['blog/updatecreate'] = "admin/BlogController/updatecreate";
+$route['blog/delete/:any'] = "admin/BlogController/delete";
+
+/* ############### blog end #################### */
 
 $route['404_override'] = '';
 

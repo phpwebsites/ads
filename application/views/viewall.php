@@ -35,7 +35,11 @@
 					  			   <li>
 					  			     <i class="glyphicon glyphicon-menu-right"></i> 
 					  			     <a href="javascript:void(0)" id="<?php echo $subcategories_data->id;?>" class="sub<?php echo $i; ?>" ><?php echo $subcategories_data->name; ?> </a>
-					  			     <lable>(2)</lable>
+					  			     <?php 
+					  			       $countci =& get_instance(); 
+					  			       $count = $countci->adCount($subcategories_data->id);
+					  			     ?>
+					  			     <lable>(<?php echo $count;  ?>)</lable>
 					  			   </li>
 
 					  		   <?php $i++; } ?>

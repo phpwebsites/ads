@@ -27,5 +27,19 @@
     	$query = $this->db->get('ads');
     	return $query->row();
     }
+
+    public function getrecentads($subid)
+    {
+        $this->db->where('subcategory_id',$subid);
+        $this->db->order_by('id','desc');
+        $query = $this->db->get('ads');
+        return $query->result();    
+    }
+
+    public function getadscount($id)
+    {
+       return $this->db->where('subcategory_id',$id)->count_all('ads');
+       
+    }
   }
 ?>

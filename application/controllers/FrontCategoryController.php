@@ -264,5 +264,11 @@
         $data['ads'] = $this->adsmodel->getads($id);
         $this->load->view('showads' , $data);
      }
+
+     public function adCount($id)
+     {
+        return $this->adsmodel->getadscount($id);
+
+     }
   }
 ?>

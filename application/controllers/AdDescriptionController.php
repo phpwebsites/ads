@@ -57,6 +57,12 @@
 	   		return $data;
 	   	}
 
+	   	public function recentads($adsubid)
+	   	{
+	   		$recentaddata = $this->adsmodel->getrecentads($adsubid);
+	   		return $recentaddata;
+	   	}
+
 
    }
 ?>
