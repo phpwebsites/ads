@@ -1,4 +1,3 @@
-<?php print_r($editblogdata); ?>
 <div id="page-wrapper" style="padding-bottom: 98px !important;">
             <div class="container-fluid">
                 <!-- Page Heading -->

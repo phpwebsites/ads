@@ -1,21 +1,14 @@
+
 <?php $this->load->view('includes/header.php'); ?>
 <section>
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-6 text-center">
-				<img src="uploads/IMG_1135.JPG" width="500" height="400" class="boxshadow">
+				<img src="<?php echo base_url(); ?>uploads/blog/<?php echo $blogdesc->image; ?>" width="500" height="400" class="boxshadow">
 			</div>
 			<div class="col-xs-6 text-justify">
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniam
-
-				</p>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniam
-				</p>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniam
-				</p>
+			    <strong><?php echo $blogdesc->title;  ?></strong></br>
+				<?php echo $blogdesc->description;  ?>
 			</div>
 		</div>
 		<div class="row">

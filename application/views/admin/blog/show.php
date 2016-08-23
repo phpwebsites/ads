@@ -56,7 +56,7 @@
                                         <td> <?php echo $blog_result -> description; ?></td>
                                         <td> <img src="<?php echo base_url(); ?>/uploads/blog/<?php echo $blog_result -> image;  ?>" width="100" height="100" /></td>
                                         <td class="text-center">
-                                          <a href="<?php echo base_url("blog/edit/".$blog_result ->id); ?>"><i class="fa fa-edit"></i></a>
+                                          <a href="<?php echo base_url("adminblog/edit/".$blog_result ->id); ?>"><i class="fa fa-edit"></i></a>
                                           <a href="<?php echo base_url('blog/delete/'.$blog_result -> id); ?>" onClick="return confirm('Are you sure you want to delete record')"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                       </tr>
@@ -66,6 +66,14 @@
                                     </tbody>
                            </table>
                       </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+
+                        <?php echo $links; ?>
+                    
+                  </div>
+                  
                 </div>
 
             </div>

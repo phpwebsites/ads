@@ -15,10 +15,11 @@
 		 } 
 	  }
 
-	  public function getAll()
+	  public function getAll($limit, $start)
 	  {
-		$query = $this->db->get('blogs');
-		return $query->result();
+		$this->db->limit($limit, $start);
+       	$query = $this->db->get('blogs');
+       	return $query->result();
 	  }
 
 	  public function getrow($id)
@@ -41,6 +42,14 @@
 		$this -> db -> where('id', $id);
   		$this -> db -> delete('blogs');
 	  }
+
+	  public function record_count()
+	  {
+			return $this->db->count_all("blogs");
+	  }
+
+	  
+		
 
   }
 ?>
