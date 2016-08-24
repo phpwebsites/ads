@@ -9,6 +9,7 @@
 			$this->load->library('form_validation');
 			$this->load->helper('authenticate_helper');
 			$this->load->library("pagination");
+			$this->load->helper('form');
 		 	if(is_logged_in() == "false" && $this->uri->segment(1) == "country")
 		 	{
 		 	

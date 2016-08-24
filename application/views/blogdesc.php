@@ -9,50 +9,48 @@
 			<div class="col-xs-6 text-justify">
 			    <strong><?php echo $blogdesc->title;  ?></strong></br>
 				<?php echo $blogdesc->description;  ?>
+				<p style="padding-top: 10px;"><b>Posted On:</b><?php echo date ("d/m/Y h:ia",strtotime($blogdesc->createdon));?>&nbsp&nbsp<b>comments:</b><?php $countci =& get_instance(); echo $countci->commentcount($blogdesc->id); ?></p>
 			</div>
 		</div>
 		<div class="row">
 		<h2>
 			Comments
 		</h2>
-		<div class="row">
-		    <div class="col-xs-1"></div> 
-			<div class="col-xs-8">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniamLorem ipsum dolor sit amet,<div><b>Posted By:</b> jjjijijiioo <b>Time:</b> 3min ago 	</div></p>
-			</div>
-			<div class="col-xs-2"></div> 
+		<?php
+		   $CI =& get_instance();
+		   $comments = $CI->getAllComents($blogdesc->id);
+		   
+		?>
+		<?php foreach($comments as $comments_data){ ?>
+			<div class="row">
+			    <div class="col-xs-1"></div> 
+				<div class="col-xs-8">
+					<p><?php echo $comments_data->commentdesc; ?><div><b>Posted By:</b><?php if($this->session->userdata('username') != ""){ echo $this->session->userdata('username'); }else{ echo "Guest User"; } ?>  <b>Created On:</b> <?php  echo date ("d/m/Y h:ia",strtotime($comments_data->createdon));	 ?></div></p>
+				</div>
+				<div class="col-xs-2"></div> 
 
-		</div>
-		<div class="row">
-			<div class="col-xs-1"></div> 
-			<div class="col-xs-8">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniamLorem ipsum dolor sit amet,<div><b>Posted By:</b> jjjijijiioo <b>Time:</b> 3min ago 	</div></p>
 			</div>
-			<div class="col-xs-2"></div> 
-		</div>
-		<div class="row">
-			<div class="col-xs-1"></div> 
-			<div class="col-xs-8">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniamLorem ipsum dolor sit amet,<div><b>Posted By:</b> jjjijijiioo <b>Time:</b> 3min ago 	</div></p>
-			</div>
-			<div class="col-xs-2"></div> 
-		</div>
+		<?php } ?>	
+		
 		 <div class="col-xs-1"></div>
 		 <div class="col-xs-8">
-		 	<form class="form-horizontal">
-		 	    <div class="form-group">
-		 		<textarea class="form-control" style="width:760px;height:160px;"></textarea>
 		 	
+		 	<?php $attrib = array('class' => "form-horizontal"); ?>
+		 	<?php echo form_open('comment/create', $attrib) ?>
+		 	    <div class="form-group">
+		 		<textarea class="form-control" style="width:760px;height:160px;" name="desc" id="desc"></textarea>
+		 	    <input type="hidden" name="blog_id" id="blog_id" value="<?php echo $blogdesc->id;  ?>">
 		 		</div>
 		 		<div class="form-group">
-		 		   <div class="col-xs-3"></div>
-		 		   <div class="col-xs-6"><input type="submit" name="" class="form-control btn comment-primary" style="margin-left: -12px;"></div>
+		 		   
+		 		   <div class="col-xs-3"><input type="submit" name="" class="form-control btn comment-primary btn-md" style="margin-left: -12px;"></div>
 		 		  
 		 		</div>
-		 	</form>
+		 	
+		 	<?php echo form_close(); ?>
 		 </div>
 		 <div class="col-xs-2"></div>
-			
+		
 		</div>
 
 	</div>

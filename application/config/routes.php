@@ -135,6 +135,10 @@ $route['blog/updatecreate'] = "admin/BlogController/updatecreate";
 $route['blog/delete/:any'] = "admin/BlogController/delete";
 
 /* ############### blog end #################### */
+/* ############### comments start ############## */
+$route['comment/create'] = "ContentController/commentcreate";
+/* ############### comments end ############## */
+// commentcreate
 
 $route['404_override'] = '';
 

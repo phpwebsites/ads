@@ -11,7 +11,7 @@
 			<div class="col-xs-6">
 			    <strong><?php echo $blog_result->title; ?></strong>
 				<p class="text-justify"><?php echo character_limiter($blog_result->description,560); ?><a href="<?php echo base_url('blogdesc/'.$blog_result->id); ?>" style="padding-left: 10px;">View More</a></p>
-				<p><b>Created on :</b><?php echo $blog_result->createdon ?> <b>Comments :</b>2</p>
+				<p><b>Created on :</b><?php echo date ("d/m/Y h:ia",strtotime($blog_result->createdon));  ?> &nbsp&nbsp <b>Comments :</b>2</p>
 				
 			</div>
 	   </div>
