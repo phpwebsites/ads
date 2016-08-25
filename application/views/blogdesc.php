@@ -2,26 +2,34 @@
 <?php $this->load->view('includes/header.php'); ?>
 <section>
 	<div class="container">
+	    <div class="row">
+	    	<div class="col-xs-12">
+	    		<ul class="breadcrumb">
+    <li><a href="<?php echo base_url(); ?>">Home</a></li>
+    <li><a href="<?php echo base_url('blog'); ?>">Blog</a></li>
+    <li class="active"><?php echo $blogdesc->title; ?></li>
+</ul>
+	    	</div>
+	    </div>
 		<div class="row">
 			<div class="col-xs-6 text-center">
 				<img src="<?php echo base_url(); ?>uploads/blog/<?php echo $blogdesc->image; ?>" width="500" height="400" class="boxshadow">
 			</div>
 			<div class="col-xs-6 text-justify">
-			    <strong><?php echo $blogdesc->title;  ?></strong></br>
+			    <strong><?php echo character_limiter($blogdesc->title,60); ?> </strong></br>
 				<?php echo $blogdesc->description;  ?>
 				<p style="padding-top: 10px;"><b>Posted On:</b><?php echo date ("d/m/Y h:ia",strtotime($blogdesc->createdon));?>&nbsp&nbsp<b>comments:</b><?php $countci =& get_instance(); echo $countci->commentcount($blogdesc->id); ?></p>
 			</div>
 		</div>
-		<div class="row">
+		
 		<h2>
 			Comments
 		</h2>
 		<?php
 		   $CI =& get_instance();
 		   $comments = $CI->getAllComents($blogdesc->id);
-		   
 		?>
-		<?php foreach($comments as $comments_data){ ?>
+		<?php foreach($comments['comments'] as $comments_data){ ?>
 			<div class="row">
 			    <div class="col-xs-1"></div> 
 				<div class="col-xs-8">
@@ -32,7 +40,15 @@
 			</div>
 		<?php } ?>	
 		
-		 <div class="col-xs-1"></div>
+		 <div class="row">
+		 	<div class="col-xs-12 text-right">
+		 		<?php echo $comments['pagination'] ?>
+		 	</div>
+		 </div>
+		
+		
+		<div class="row">
+			<div class="col-xs-1"></div>
 		 <div class="col-xs-8">
 		 	
 		 	<?php $attrib = array('class' => "form-horizontal"); ?>
@@ -50,7 +66,6 @@
 		 	<?php echo form_close(); ?>
 		 </div>
 		 <div class="col-xs-2"></div>
-		
 		</div>
 
 	</div>

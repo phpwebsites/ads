@@ -97,12 +97,15 @@
 		   $page = ($this->uri->segment(2)) ? $this->uri->segment(3) : 0;
            //print_r($data);exit;
            $data = $this->pagination->create_links();
+           $result = $this->commentmodel->getcomments($config["per_page"], $page,$id);
            // echo $data;
-           echo " \n".print_r($data, TRUE)."\n\n\n";
-
-		   // echo $page; 
+  		   // echo $page; 
 		   // $this->load->view("blogdesc/".$id,$data);
-		   return $this->commentmodel->getcomments($config["per_page"], $page,$id);
+		   $commentdata = array(
+    		 'pagination' => $data,
+   			 'comments' => $result
+           );
+		   return $commentdata;
 
  		   //return $this->commentmodel->getcomments($id);
  	}

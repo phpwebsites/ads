@@ -39,7 +39,12 @@
 
 	 public function commentcount($id)
 	 {
-	 	$result = $this->db->where('blog_id',$id)->count_all("comments");
+	 	//echo $id; exit;
+	 	// $result =  $this->db->where('blog_id',$id)->count("comments");
+
+	 	$result = $this->db->where('blog_id',$id)
+         ->from('comments')
+         ->count_all_results();
 	 	return $result;
 	 }
 
