@@ -38,8 +38,20 @@
 
     public function getadscount($id)
     {
-       return $this->db->where('subcategory_id',$id)->count_all('ads');
+       // return $this->db->where('subcategory_id',$id)->count_all('ads');
+       $result = $this->db->where('subcategory_id',$id)
+         ->from('ads')
+         ->count_all_results();
+        return $result;
        
+    }
+
+    public function getlatestads()
+    {
+        $this->db->order_by('createdon','desc');
+        $this->db->limit(3,4);
+        $query = $this->db->get('ads');
+        return $query->result();    
     }
   }
 ?>

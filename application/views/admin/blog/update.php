@@ -6,6 +6,11 @@
                         <h1 class="page-header">
 							Blog Add
                         </h1>
+                        <div class="row" style="margin-bottom: 10px;">
+<!--                           <div class="col-xs-12 text-right">
+                                <img src="<?php //echo base_url(); ?>/assets/admin/images/backarrow.png">     
+                          </div> -->
+                        </div>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="<?php echo base_url('admin'); ?>">Dashboard</a>
@@ -13,6 +18,7 @@
                             <li class="active">
                                 <i class="fa fa-user"></i> Blog
                             </li>
+                            <li style="margin-left: 70%;"> <a href="<?php echo base_url('/blog/show'); ?>"><img src="<?php echo base_url(); ?>/assets/admin/images/backarrow.png"><span style="padding-left: 5px;font-size: 15px;">Back</span></a></li>
                         </ol>
                     </div>
                 </div>
@@ -45,6 +51,7 @@
                          <div class="col-sm-7">
                          <input type="file" name="blogimage" id="blogimageupdate" class="form-control">
                          <img src="<?php echo base_url(); ?>/uploads/blog/<?php echo $editblogdata->image; ?>" width="150" height="150" id="image_upload_preview">
+                         <input type="hidden" name="blogimage" id="blogimage" value="<?php echo $editblogdata->image;  ?>">
                          <input type="hidden" name="blogid" id="blogid" value="<?php echo $editblogdata->id; ?>">
                          <span class="text-danger"><?php echo form_error('blogimage'); ?></span>
                          </div>

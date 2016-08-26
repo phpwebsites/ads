@@ -22,7 +22,7 @@
 	   public function show()
 	   {
 	   	  //$data['blogresult'] = $this->blogmodel->getAll();
-	   	  $config = array();
+	   	   $config = array();
            $config["base_url"] = base_url() . "blog/show";
            $config["total_rows"] = $this->blogmodel->record_count();
            $config["per_page"] = 5;
@@ -76,6 +76,7 @@
 	         
 	         $this->form_validation->set_rules('blogimage', 'Blogimage', 'callback_file_selected_test');
 	         //echo $this->form_validation->run(); exit;
+
 	         if($this->form_validation->run() == FALSE)
 		     {
 		     	 $this->load->view('admin/includes/header');
@@ -145,6 +146,7 @@
 	 $this->form_validation->set_rules("title", "Title", "trim|required");
 	 $this->form_validation->set_rules("description", "Description", "trim|required");
 	 $this->form_validation->set_rules('blogimage', 'Blogimage', 'callback_file_selected_test');
+
 	 if($this->form_validation->run() == FALSE)
      {
 		$this->load->view('admin/includes/header');

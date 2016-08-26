@@ -63,6 +63,12 @@
 	   		return $recentaddata;
 	   	}
 
+	   	public function getsubimage()
+	   	{
+	   		$id = $this->uri->segment(2);
+	   		$this->adsimagesmodel->getsingleimage($id);
+	   	}
+
 
    }
 ?>

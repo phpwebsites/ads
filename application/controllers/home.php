@@ -10,6 +10,7 @@ class Home extends CI_Controller {
 		 $this->load->model('countrymodel');
 		 $this->load->model('categoriesmodel');
 		 $this->load->model('subcategoriesmodel');
+		 $this->load->model('adsmodel');
          
     }
 
@@ -49,6 +50,17 @@ class Home extends CI_Controller {
     public function viewall()
     {
     	$this->load->view('viewall.php');
+    }
+
+    public function adCount($id)
+    {
+        return $this->adsmodel->getadscount($id);
+
+    }
+
+    public function latestads()
+    {
+    	return $this->adsmodel->getlatestads();
     }
  }
 ?>

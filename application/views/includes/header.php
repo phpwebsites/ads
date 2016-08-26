@@ -11,13 +11,18 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>slick/slick.css">
   <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>slick/slick-theme.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/jqzoomcss/bootstrap-magnify.css">
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.eot" >
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" >
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.ttf" >
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.woff" >
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.woff2">
   <script type="text/javascript" src="<?php echo asset_url(); ?>js/jquery.min.js"></script>
-  <script type="text/javascript" src="<?php echo asset_url(); ?>js/bootstrap.js"></script>  
+  <script type="text/javascript" src="<?php echo asset_url(); ?>js/bootstrap.js"></script> 
+  <script type="text/javascript" src="<?php echo asset_url(); ?>js/jqzoom/bootstrap-magnify.min.js"></script>
+  
+  
+  
  
 </head>
 

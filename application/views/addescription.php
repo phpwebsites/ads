@@ -12,12 +12,15 @@
  		<div class="row">
  		   <div class="col-xs-4">
  		      <div class="row">
- 		      	 <img src="<?php echo base_url(); ?>/uploads/<?php echo $singleimage->name;  ?>" style="width:95%;height:30%;"> 	
+ 		      	 <img src="<?php echo base_url(); ?>/uploads/<?php echo $singleimage->name;  ?>" style="width:95%;height:30%;" data-toggle="magnify"> 
+ 		      	 <img src="" id="addsubimage">	
  		      </div>
  		      <div class="row">
  		      <?php foreach($allimagedata as $allimage_data ){ ?>
  		      	<div class="col-xs-3">
+ 		      	 <a href="javascript:void(0)" id="<?php echo $allimage_data->id; ?>" class="imageid">
  		      	   <img src="<?php echo base_url(); ?>/uploads/<?php echo $allimage_data->name;  ?>" style="width:100%">
+ 		      	 </a>
  		      	</div>
  		      <?php } ?>	
  		      		
@@ -148,4 +151,21 @@
   </div>
  	
  </section>
+ <script type="text/javascript">
+	$(document).ready(function(){
+		$('.imageid').click(function(){
+			var image_id = $(this).attr('id');
+			$.ajax({
+                type: "POST",
+                url: '<?php echo site_url('images').'/'; ?>'+image_id,
+                            //data: id='cat_id',
+                success: function(data){
+                   //alert(data);
+                   $('#addsubimage').html(data);
+                },
+            });
+		})
+	});
+
+</script>
 <?php $this->load->view('includes/footer.php'); ?>

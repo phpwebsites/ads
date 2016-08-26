@@ -41,5 +41,10 @@
            // $query = $this->db->select('id,name')->from('adsimages')->where('ad_id', $id)->limit(3,1);
            // return $this->db->get()->result_array(); 
     }
+
+    public function getsingleimage($id)
+    {
+      
+    }
   }
 ?>

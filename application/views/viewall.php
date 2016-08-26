@@ -2,6 +2,15 @@
 	<section class="category">
 		<div class="container">
 		  <div class="row">
+	    	<div class="col-xs-12">
+	    		<ul class="breadcrumb">
+    <li><a href="<?php echo base_url(); ?>">Home</a></li>
+    <li><a href="<?php echo base_url('#categories'); ?>">All Categories</a></li>
+    <li class="active">Sub Categories</li>
+</ul>
+	    	</div>
+	    </div>
+		  <div class="row">
 		  	<div class="col-xs-3">
 		  		 <ul class="nav nav-pills nav-stacked navbgcolor">
 				        <li><a href="#" class="catgegoryheading">All Categories</a></li>

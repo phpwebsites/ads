@@ -101,7 +101,11 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                     
                     <?php $subcategory = $CI -> subcategories($category_data->id); ?>
                     <?php foreach ($subcategory as $subcategory_data ) { ?>
-                        <li> <a href=""><?php echo $subcategory_data->name; ?></a> <span>(1)</span></li>
+                        <li> <a href=""><?php echo $subcategory_data->name; ?></a> <?php 
+                         $countci =& get_instance(); 
+                         $count = $countci->adCount($subcategory_data->id);
+                       ?>
+                       <lable>(<?php echo $count;  ?>)</lable></li>
 
                     <?php } ?>
                     
@@ -209,6 +213,14 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
 
             <div class="tab-content">
                 <div class="tab-pane active" id="1">
+                <?php 
+                   $CI_latestads =& get_instance();  
+                   $latestads = $CI_latestads->latestads();
+
+                   //print_r($latestads );
+
+                ?>
+                <?php foreach($latestads as $latestads_data){ ?>
                   <div class="row adbg">
                          <div class="col-xs-1"></div>
                          <div class="col-xs-3">
@@ -225,39 +237,11 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                          
 
                   </div>
-                  <div class="row adbg">
-                         <div class="col-xs-1"></div>
-                         <div class="col-xs-3">
-                            <img src="<?php echo asset_url(); ?>images/ad2.jpg">
-
-                         </div>
-                         <div class="col-xs-7">
-                            <h4>Lorumipsum Lorumipsum</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                            <p><b>Price :</b> 201564  <span class="addcat"><b>Posted By:</b>lorumipsum</span> <span class="addcat"><b>Time:</b>1month ago</span></p>
-
-                         </div>
-                         <div class="col-xs-1"></div>
-
-                         
-
-                  </div>
-                 <div class="row adbg">
-                       <div class="col-xs-1"></div>
-                       <div class="col-xs-3">
-                          <img src="<?php echo asset_url(); ?>images/ad1.jpg">
-
-                       </div>
-                       <div class="col-xs-7">
-                          <h4>Lorumipsum Lorumipsum</h4>
-                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                          <p><b>Price :</b> 14141414  <span class="addcat"><b>Posted By:</b>lorumipsum</span> <span class="addcat"><b>Time:</b>1month ago</span></p>
-
-                       </div>
-                       <div class="col-xs-1"></div>
-                 </div>
+                  
+               
                       
                 </div>
+              <?php } ?>
                 <div class="tab-pane" id="2">
                        <div class="row adbg">
                              <div class="col-xs-1"></div>
