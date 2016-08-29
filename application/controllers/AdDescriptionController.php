@@ -66,7 +66,8 @@
 	   	public function getsubimage()
 	   	{
 	   		$id = $this->uri->segment(2);
-	   		$this->adsimagesmodel->getsingleimage($id);
+	   		$data['image_result'] = $this->adsimagesmodel->getsingleimage($id);
+	   		$this->load->view('subimage',$data);
 	   	}
 
 

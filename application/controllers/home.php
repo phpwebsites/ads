@@ -11,6 +11,8 @@ class Home extends CI_Controller {
 		 $this->load->model('categoriesmodel');
 		 $this->load->model('subcategoriesmodel');
 		 $this->load->model('adsmodel');
+		 $this->load->helper('timeinfo');
+		 $this->load->model('adsimagesmodel');
          
     }
 
@@ -62,5 +64,25 @@ class Home extends CI_Controller {
     {
     	return $this->adsmodel->getlatestads();
     }
+
+    public function userData($id)
+	{
+	   return $user_data = $this->usermodel->get_userdata($id);
+	}
+
+	public function getimage($id)
+	{
+		return $this->adsimagesmodel->getsingleimage($id);
+	}
+
+	public function getAllads()
+	{
+		return $this->adsmodel->getAllRow();
+	}
+
+	public function getAlladsImages($id)
+	{
+		return $this->adsimagesmodel->getimage($id);
+	}
  }
 ?>

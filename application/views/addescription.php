@@ -9,11 +9,21 @@
  	      //print_r($allimagedata);exit;
  	   			
  	   ?>
+ 	    <div class="row">
+ 	    	<ul class="breadcrumb">
+			    <li><a href="<?php echo base_url(); ?>">Home</a></li>
+			    <li><a href="<?php echo base_url('#categories'); ?>">All Categories</a></li>
+			    <li class="active"><a href="javascript:history.back()">Sub Categories</a></li>
+			    <li class="active">info</li>
+           </ul>
+ 	    </div>
  		<div class="row">
  		   <div class="col-xs-4">
  		      <div class="row">
- 		      	 <img src="<?php echo base_url(); ?>/uploads/<?php echo $singleimage->name;  ?>" style="width:95%;height:30%;" data-toggle="magnify"> 
- 		      	 <img src="" id="addsubimage">	
+ 		        <div class="col-xs-12" id="addsubimage">
+ 		      	 <img src="<?php echo base_url(); ?>/uploads/<?php echo $singleimage->name;  ?>" style="width:95%;height:30%;" data-toggle="magnify" id="mainimage"> 
+ 		      	<!--  <div  id="addsubimage"> -->
+ 		      	</div>	
  		      </div>
  		      <div class="row">
  		      <?php foreach($allimagedata as $allimage_data ){ ?>
@@ -119,9 +129,10 @@
 	 	  			 <?php $recentadsdata =& get_instance(); ?>
 	 	             <?php 
 	 	             	$recentdata = $recentadsdata->recentads($adresult->subcategory_id);
+
 	 	             ?>
-	 	             <?php foreach($recentdata as $recent_data ){ ?>
-	 	             <a href="<?php base_url('description/'.$recent_data->id); ?>" style="color: #4e4e4e;">
+	 	             <?php foreach($recentdata as $recent_data){ ?>
+	 	                 <a href="<?php echo base_url('description/'.$recent_data->id); ?>" style="color: #4e4e4e;">
 		 	  	         <div class="row adbg">
 	                        
 		                         <div class="col-xs-5">
@@ -160,7 +171,8 @@
                 url: '<?php echo site_url('images').'/'; ?>'+image_id,
                             //data: id='cat_id',
                 success: function(data){
-                   //alert(data);
+                   // alert(data);
+                   $("#mainimage").css("display","none");
                    $('#addsubimage').html(data);
                 },
             });

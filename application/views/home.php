@@ -132,39 +132,25 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
      
    </div>
 </section>
+<?php 
+ $CI_allads =& get_instance();  
+ $allads = $CI_allads->getAllads();
+ $CI_alladsimage =& get_instance();  
+ 
+?>
 <section id="thumbnail-slider">
      <div class="container">
              <section class="regular slider">
+          <?php foreach($allads as $allads_data){ ?>
+            <a href="<?php echo site_url('description/'.$allads_data->id); ?>" style="text-decoration:none;">
               <div>
-                <img src="<?php echo asset_url(); ?>images/ads3.png">
+                <?php $alladsimage = $CI_alladsimage->getAlladsImages($allads_data->id); ?>
+                <img src="<?php echo site_url(); ?>uploads/<?php echo $alladsimage->name;  ?>" style="width: 80%;">
+                <span style="color:#4e4e4e;"><b>Price:</b><?php echo round ($allads_data->price); ?></span>
+
               </div>
-              <div>
-                <img src="<?php echo asset_url(); ?>images/ads3.png">
-              </div>
-              <div>
-                <img src="<?php echo asset_url(); ?>images/ads3.png">
-              </div>
-              <div>
-                <img src="<?php echo asset_url(); ?>images/ads3.png">
-              </div>
-              <div>
-                <img src="<?php echo asset_url(); ?>images/ads3.png">
-              </div>
-              <div>
-                <img src="<?php echo asset_url(); ?>images/ads3.png">
-              </div>
-               <div>
-                <img src="<?php echo asset_url(); ?>images/ads3.png">
-              </div>
-               <div>
-                <img src="<?php echo asset_url(); ?>images/ads3.png">
-              </div>
-               <div>
-                <img src="<?php echo asset_url(); ?>images/ads3.png">
-              </div>
-               <div>
-                <img src="<?php echo asset_url(); ?>images/ads3.png">
-              </div>
+            </a>
+          <?php } ?>   
             </section>
       </div>
 
@@ -179,13 +165,13 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="height: 50px;">
                       <span id="search_concept">Filter by</span> <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#contains">Travel</a></li>
-                      <li><a href="#its_equal">Jobs</a></li>
-                      <li><a href="#greather_than">Education</a></li>
-                      <li><a href="#less_than">Hospatels </a></li>
-                      <li><a href="#all">Anything</a></li>
-                    </ul>
+                    <select class="dropdown-menu" role="menu">
+                      <option><a href="#contains">Travel</a></option>
+                      <option><a href="#its_equal">Jobs</a></option>
+                      <option><a href="#greather_than">Education</a></option>
+                      <option><a href="#less_than">Hospatels </a></option>
+                      <option><a href="#all">Anything</a></option>
+                    </select>
                 </div>
                 <input type="hidden" name="search_param" value="all" id="search_param">         
                 <input type="text" class="form-control" name="x" placeholder="Search term..." style="height: 50px;">
@@ -216,32 +202,38 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                 <?php 
                    $CI_latestads =& get_instance();  
                    $latestads = $CI_latestads->latestads();
-
-                   //print_r($latestads );
-
-                ?>
+                   $CI_userdata =& get_instance();  
+               ?>
                 <?php foreach($latestads as $latestads_data){ ?>
-                  <div class="row adbg">
-                         <div class="col-xs-1"></div>
-                         <div class="col-xs-3">
-                            <img src="<?php echo asset_url(); ?>images/ad1.jpg">
+                <div class="row">
+                 <div class="col-xs-1"></div>
+                 <div class="col-xs-10">
+                 <a href="<?php echo site_url('description/'.$latestads_data->id); ?>" style="color: #4e4e4e;">
+                    <div class="row adbg">
+                           <div class="col-xs-2"></div>
+                           <div class="col-xs-2">
+                           <?php $CI_imagedata =& get_instance(); 
+                                 $imagename = $CI_imagedata -> getimage($latestads_data->id); ?>
+                              <img src="<?php echo site_url(); ?>uploads/<?php echo $imagename->name;  ?>" style="width: 100%;">
 
-                         </div>
-                         <div class="col-xs-7">
-                            <h4>Lorumipsum Lorumipsum</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                            <p><b>Price :</b> 201564  <span class="addcat"><b>Posted By:</b>lorumipsum</span> <span class="addcat"><b>Time:</b>1month ago</span></p>
+                           </div>
+                           <div class="col-xs-6">
+                              <h4><?php echo $latestads_data->title; ?></h4>
+                              <p class="text-justify"><?php echo $latestads_data->description; ?></p>
+                              <p><b>Price :</b> <?php echo $latestads_data->price;  ?>  <span class="addcat"><b>Posted By:</b><?php $username = $CI_userdata->userData($latestads_data->user_id); echo $username->name;  ?></span> <span class="addcat"><b>Time:</b> <?php echo time_stamp($latestads_data->createdon); ?></span></p>
 
-                         </div>
-                         <div class="col-xs-1"></div>
-                         
+                           </div>
+                           <div class="col-xs-2"></div>
+                           
 
-                  </div>
-                  
-               
-                      
+                    </div>
                 </div>
+                </a>
+                <div class="col-xs-1"></div>    
+                </div>
+                
               <?php } ?>
+              </div>
                 <div class="tab-pane" id="2">
                        <div class="row adbg">
                              <div class="col-xs-1"></div>

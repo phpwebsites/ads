@@ -48,10 +48,16 @@
 
     public function getlatestads()
     {
-        $this->db->order_by('createdon','desc');
-        $this->db->limit(3,4);
+        $this->db->order_by('id','desc');
+        $this->db->limit(3);
         $query = $this->db->get('ads');
         return $query->result();    
+    }
+
+    public function getAllRow()
+    {
+       $query = $this->db->get('ads');
+       return $query->result();   
     }
   }
 ?>
