@@ -138,6 +138,7 @@ $route['blog/delete/:any'] = "admin/BlogController/delete";
 /* ############### comments start ############## */
 $route['comment/create'] = "ContentController/commentcreate";
 $route['images/:any'] = "AdDescriptionController/getsubimage";
+$route['search/create'] = "SearchController/searchcreate";
 /* ############### comments end ############## */
 // commentcreate
 

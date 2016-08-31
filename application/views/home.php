@@ -159,27 +159,19 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
 <section id="search">
  <div class="container">
       <div class="row">
+          
            <div class="col-xs-8 col-xs-offset-2">
-        <div class="input-group">
-                <div class="input-group-btn search-panel">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="height: 50px;">
-                      <span id="search_concept">Filter by</span> <span class="caret"></span>
-                    </button>
-                    <select class="dropdown-menu" role="menu">
-                      <option><a href="#contains">Travel</a></option>
-                      <option><a href="#its_equal">Jobs</a></option>
-                      <option><a href="#greather_than">Education</a></option>
-                      <option><a href="#less_than">Hospatels </a></option>
-                      <option><a href="#all">Anything</a></option>
-                    </select>
-                </div>
-                <input type="hidden" name="search_param" value="all" id="search_param">         
-                <input type="text" class="form-control" name="x" placeholder="Search term..." style="height: 50px;">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" style="height: 50px;"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
-            </div>
-        </div>
+           <?php echo form_open('search/create') ?>
+              <select name="adscategory" id="adscategory">
+                <option value="">-----select category-----</option>
+                <?php foreach($category as $category_data){ ?>
+                    <option value="<?php echo $category_data->id; ?>"><?php echo $category_data->name; ?></option>
+                <?php } ?>
+              </select>
+              <input type="text" name="adsearch" id="adsearch">
+              <input type="submit" name="adsearchbutt" id="adsearchbutt" value="">
+          <?php echo form_close(); ?>
+           </div>
         
       </div>
   </div>

@@ -59,5 +59,13 @@
        $query = $this->db->get('ads');
        return $query->result();   
     }
+
+    public function getcategoryads($category_id)
+    {
+      $this->db->where('category_id',$category_id);
+      $this->db->order_by('id','desc');
+      $query = $this->db->get('ads');
+      return $query->result();    
+    }
   }
 ?>
