@@ -62,10 +62,19 @@
 
     public function getcategoryads($category_id)
     {
+      $this->db->limit(3);
       $this->db->where('category_id',$category_id);
-      $this->db->order_by('id','desc');
+      // $this->db->order_by('id','desc');
       $query = $this->db->get('ads');
       return $query->result();    
+    }
+
+    public function gettotalads($offset)
+    {
+       $this->db->limit(3);
+       $this->db->where('id >', $offset); 
+       $query = $this->db->get('ads');
+       return $query->result();  
     }
   }
 ?>

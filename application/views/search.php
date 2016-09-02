@@ -35,9 +35,7 @@
 								<h3 class="text-center"> Top ads </h3>
 							</div>
 						</div>
-						
-
-						<?php if(count($ads) > 0){ ?>
+<?php if(count($ads) > 0){ ?>
 	<?php foreach($ads as $ads_data){ ?>
  <a href="<?php echo site_url('description/'.$ads_data->id); ?>" style="color:#4e4e4e;">
 	<div class="row adbg">
@@ -64,12 +62,27 @@
 	    </div>
    </div>
   </a>
+     <?php $adid = $ads_data->id; ?>
 	<?php } ?>
 <?php } else{ ?>
 	<div class="row adbg">
 		<div class="col-xs-12 text-center"> No Ads In This Category </div>
 	</div>
 <?php } ?>
+<div id="loadmore"></div>
+<div class="row">
+ 	<!-- <button onclick="loadmore()" value="loadmore" />
+ 	</br>
+   <input type="text" name="limit" id="limit" value="10"/>
+   <input type="text" name="offset" id="offset" value="1"/>  
+   <div id="load-more">
+   	
+   </div> -->
+   <div id="remove_row">
+   	   <button type="button" name="btn-more" id="btn-more" data-vid="<?php echo $adid; ?>" class="btn btn-success form-control">Loarde more</button>
+   </div>
+   
+</div>
 
 						        
 					
@@ -82,6 +95,42 @@
 			
 		</div>
 	</section>
+
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		$(document).on('click','#btn-more',function(){
+
+			var last_ad_id = $(this).data("vid");
+			
+	 $.ajax({
+    	
+        url:'<?php echo site_url('SearchController/loadmore'); ?>',
+        type: 'POST',
+        data:{
+          offset :$(this).data("vid")
+        },
+        dataType:'text',
+        success :function(data){
+        	
+        	if(data != "")
+        	{
+        		$("#remove_row").remove();
+        		$("#loadmore").append(data);
+        		
+        	}
+           // $('#offset').val(data.offset)
+           // $('#limit').val(data.limit)
+        }
+    })
+
+		})
+	})
+			
+	
+</script>
 <?php include "includes/footer.php";  ?>
+
 
 

@@ -13,6 +13,7 @@
          $this->load->model('usermodel');
          $this->load->model('adsmodel');
          $this->load->model('adsimagesmodel');
+         $this->output->set_content_type('application/json');
 
 	  }
 
@@ -28,6 +29,24 @@
 	  	  $categoryid = $this->input->post('adscategory');
           $data['ads'] = $this->adsmodel->getcategoryads($categoryid);
           $this->load->view('search.php',$data);
+	  }
+
+    public function searchload()
+    {
+       $this->uri->segment(3);
+    }
+
+	  public function loadmore()
+	  {
+	  	  // $limit = $this->input->post('limit');
+        $offset = $this->input->post('offset');
+        $result  = $this->adsmodel->gettotalads($offset);
+        $data['view'] = $result;
+        // print_r($data); exit;
+        //$data['offset'] = $offset +10;
+        // $data['limit'] = $limit;
+        $this->load->view('loadads',$data);
+        // echo json_encode($data);
 	  }
    }
 ?>
