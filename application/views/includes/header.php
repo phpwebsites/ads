@@ -12,6 +12,7 @@
   <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>slick/slick.css">
   <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>slick/slick-theme.css">
   <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/jqzoomcss/bootstrap-magnify.css">
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.eot" >
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" >
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.ttf" >
@@ -20,6 +21,7 @@
   <script type="text/javascript" src="<?php echo asset_url(); ?>js/jquery.min.js"></script>
   <script type="text/javascript" src="<?php echo asset_url(); ?>js/bootstrap.js"></script> 
   <script type="text/javascript" src="<?php echo asset_url(); ?>js/jqzoom/bootstrap-magnify.min.js"></script>
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
   
   
   
@@ -34,7 +36,7 @@
    				<div class="row">
    				  <div class="col-xs-4">
 					
-					<img src="<?php echo asset_url(); ?>images/logo.png" alt="logo" width="135">
+					<a href="<?php echo base_url(); ?>"><img src="<?php echo asset_url(); ?>images/logo.png" alt="logo" width="135"></a>
 					
 
    				  </div>

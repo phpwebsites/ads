@@ -185,8 +185,7 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                   </li>
                   <li><a href="#2" data-toggle="tab">Most Popular Ads</a>
                   </li>
-                  <li><a href="#3" data-toggle="tab">Random Ads</a>
-                  </li>
+                  
             </ul>
 
             <div class="tab-content">
@@ -197,9 +196,9 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                    $CI_userdata =& get_instance();  
                ?>
                 <?php foreach($latestads as $latestads_data){ ?>
-                <div class="row">
-                 <div class="col-xs-1"></div>
-                 <div class="col-xs-10">
+                <div class="row" style="padding-left: 70px;">
+                
+                 <div class="col-xs-11">
                  <a href="<?php echo site_url('description/'.$latestads_data->id); ?>" style="color: #4e4e4e;">
                     <div class="row adbg">
                            <div class="col-xs-2"></div>
@@ -221,7 +220,7 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                     </div>
                 </div>
                 </a>
-                <div class="col-xs-1"></div>    
+               
                 </div>
                 
               <?php } ?>
@@ -260,9 +259,7 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                   </div>
                       
                 </div>
-                <div class="tab-pane" id="3">
-                      
-                </div>
+                
             </div>
    </div>
 

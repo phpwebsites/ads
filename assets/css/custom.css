@@ -288,7 +288,22 @@ ul.tsc_paginationA01 li.current a { background:#FFFFFF; }
     /* margin-top: -24px; */
     position: relative;
     top: 6px;}
-
+.priceing-border{width: 220px;height: 330px;border: 1px solid #b5b0b0;}
+.plantitle{height: 60px;background-color: #8a8383;color: #FFF;text-align: center;padding-top: 15px;}
+.plandesc{height: 160px;}
+.planprice{text-align: center;text-align: center;height: 40px;border-bottom: 1px solid #b9b3b3;border-top: 1px solid #b9b3b3;padding-top: 9px;}
+.switch{text-align: center; padding-top: 15px;}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #8a8383;
+    border-color: #8a8383;
+}
+.btn-primary {
+    color: #fff;
+     background-color: #8a8383;
+    border-color: #8a8383;
+}
+#priceingtable{display: none;}
 
 
 
