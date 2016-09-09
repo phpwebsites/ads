@@ -54,13 +54,26 @@
       public function postanadcreate()
       {
 
-         $postadval = array('title' => $this->input->post('title'),'description' => $this->input->post('desc'),'category_id' => $this->input->post('category'),'subcategory_id' => $this->input->post('subcategory'),'price' => $this->input->post('price'),'payment_status' => $this->input->post('payment_status'),'user_id' => $this->input->post('user_id'));
+         if($this->input->post('plan1price') != "")
+         {
+             $planprice = $this->input->post('plan1price');
+         }
+         elseif ($this->input->post('plan2price') != "") 
+         {
+             $planprice = $this->input->post('plan2price'); 
+         }
+         else
+         {
+             $planprice = $this->input->post('plan3price'); 
+         }
+
+         $postadval = array('title' => $this->input->post('title'),'description' => $this->input->post('desc'),'category_id' => $this->input->post('category'),'subcategory_id' => $this->input->post('subcategory'),'price' => $this->input->post('price'),'payment_status' => $this->input->post('payment_status'),'user_id' => $this->input->post('user_id'), 'adplanprice' => $planprice);
           $this->form_validation->set_rules('title', 'Title', 'required');
           $this->form_validation->set_rules('desc', 'description', 'required');
           $this->form_validation->set_rules('category', 'Category', 'required');
           $this->form_validation->set_rules('subcategory', 'SubCategory', 'required');
           $this->form_validation->set_rules('price', 'Price', 'required');
-          $this->form_validation->set_rules('payment_status', 'Paymentstatus', 'required');
+          $this->form_validation->set_rules('pricing', 'Adpriceing', 'required');
           $this->form_validation->set_rules('image', 'Ad', 'callback_file_selected_test');
           if ($this->form_validation->run() == FALSE)
           {
@@ -108,7 +121,9 @@
                         $fileName = implode(',',$images);
                         $this->adsimagesmodel->upload_image($fileName,$last_insertid);
                         //$this->load->view('formsuccess');
-                        redirect("category/getsubcate/".$this->input->post('category'));
+                        redirect("plans/".$last_insertid);
+                        // redirect("category/getsubcate/".$this->input->post('category'));
+
                 }
                 else 
                 {
@@ -269,6 +284,25 @@
      {
         return $this->adsmodel->getadscount($id);
 
+     }
+
+     public function plans()
+     {
+        $adid = $this->uri->segment(2);
+        $data['adsresult'] = $this->adsmodel->getdescads($adid);
+        $this->load->view('planprice',$data);
+     }
+
+     public function getmaincategory($maincatid)
+     {
+        $data = $this->categoriesmodel->getrow($maincatid);
+        return $data;
+     }
+
+     public function getsubcategory($subcatid)
+     {
+         $data = $this->subcategoriesmodel->getrow($subcatid);
+         return $data;
      }
   }
 ?>

@@ -13,7 +13,7 @@
 		   <div class="col-xs-10">
 
 		   		<?php $attributes = array('class' => 'form-horizontal', 'id' => 'myform');
-                     echo  form_open_multipart('postad/create', $attributes); ?>
+                    echo form_open_multipart('postad/create', $attributes); ?>
                     
 					  <div class="form-group">
 					    <label class="control-label col-sm-2" for="email">Title:</label>
@@ -82,17 +82,17 @@
 					      <input type="radio" name="pricing" id="free" value="free">Free
 					    </div>
 					    <div class="col-sm-2"> 
-					      <input type="radio" name="pricing" id="pricing" value="premium">Priceing
+					      <input type="radio" name="pricing" id="pricing" value="priceing" >Priceing
 					      
 					    </div>
 					    <div class="col-xs-9">
-					    	<span class="text-danger"><?php echo form_error('payment_status'); ?></span>
+					    	<span class="text-danger"><?php echo form_error('pricing'); ?></span>
 					    </div>
 					    
 					   
 					  </div>
 					  <div class="form-group" id="priceingtable">
-
+				<!-- <form></form>	  	 -->
 					  	<div class="row">
 					  		<div class="col-xs-2">
 					  			
@@ -103,9 +103,12 @@
 					  		   	  <div class="plandesc"></div>
 					  		   	  <div class="planprice">
 					  		   	  	<span>250</span>
+					  		   	  	<input type="hidden" name="plan1price" id="plan1price" value="250" style="display:none;">
 					  		   	  </div>
 					  		   	  <div class="switch">
-					  		   	  	<input checked data-toggle="toggle" data-width="100" type="checkbox">
+					  		   	  	<!-- <input data-toggle="toggle" data-width="100" type="checkbox" id="plan1"> -->
+					  		   	  	<input id="toggle-plan1" type="checkbox" data-toggle="toggle" data-width="100">
+					  		   	  	<div id="console-event"></div>
 					  		   	  </div>
 					  		   </div>
 					  		</div>
@@ -115,9 +118,10 @@
 					  		   	   <div class="plandesc"></div>
 					  		   	  <div class="planprice">
 					  		   	  	<span>250</span>
+					  		   	  	<input type="hidden" name="plan2price" id="plan2price" value="250" style="display:none;">
 					  		   	  </div>
 					  		   	  <div class="switch">
-					  		   	  	<input checked data-toggle="toggle" data-width="100" type="checkbox">
+					  		   	  	<input id="toggle-plan2" data-toggle="toggle" data-width="100" type="checkbox" id="plan2">
 					  		   	  </div>
 					  		   </div>
 					  		</div>
@@ -127,13 +131,15 @@
 					  		   	   <div class="plandesc"></div>
 					  		   	  <div class="planprice">
 					  		   	  	<span>250</span>
+					  		   	  	<input type="hidden" name="plan3price" id="plan3price" value="250" style="display:none;">
 					  		   	  </div>
 					  		   	  <div class="switch">
-					  		   	  	<input checked data-toggle="toggle" data-width="100" type="checkbox">
+					  		   	  	<input id="toggle-plan3" data-toggle="toggle" data-width="100" type="checkbox" id="plan3">
 					  		   	  </div>
 					  		   </div>
 					  		</div>
 					  	</div>
+					  	
 					  </div>
 					  <div class="form-group">
 					    <label class="control-label col-sm-2" for="pwd">Price:</label>
@@ -260,6 +266,71 @@
               $("#pricing").click(function(){
                       $("#priceingtable").css("display","block");
               })
+
+              $("#free").click(function(){
+              	 $("#priceingtable").css("display","none");
+              })
+
+              
+              $('#toggle-plan1').change(function() {
+	      			if($(this).prop('checked'))
+	      			{
+	      				$("#toggle-plan2").prop('disabled', true);
+	      				$("#toggle-plan3").prop('disabled', true);
+	      				$("#plan1price").css("display","block");
+	      				$("#plan2price").css("display","none");
+	      				$("#plan3price").css("display","none");
+	      				
+	      			}
+	      			else
+	      			{
+	      				$("#toggle-plan2").prop('disabled', false);
+	      				$("#toggle-plan3").prop('disabled', false);
+	      				$("#plan1price").css("display","none");
+	      				$("#plan2price").css("display","none");
+	      				$("#plan3price").css("display","none");
+	      			}
+    		  })
+
+    		  $('#toggle-plan2').change(function() {
+	      			if($(this).prop('checked'))
+	      			{
+	      				$("#toggle-plan1").prop('disabled', true);
+	      				$("#toggle-plan3").prop('disabled', true);
+	      				$("#plan1price").css("display","none");
+	      				$("#plan2price").css("display","block");
+	      				$("#plan3price").css("display","none");
+	      			}
+	      			else
+	      			{
+	      				$("#toggle-plan1").prop('disabled', false);
+	      				$("#toggle-plan3").prop('disabled', false);
+	      				$("#plan1price").css("display","none");
+	      				$("#plan2price").css("display","none");
+	      				$("#plan3price").css("display","none");
+	      			}
+    		  })
+
+    		   $('#toggle-plan3').change(function() {
+	      			if($(this).prop('checked'))
+	      			{
+	      				$("#toggle-plan2").prop('disabled', true);
+	      				$("#toggle-plan1").prop('disabled', true);
+	      				$("#plan1price").css("display","none");
+	      				$("#plan2price").css("display","none");
+	      				$("#plan3price").css("display","block");
+	      			}
+	      			else
+	      			{
+	      				$("#toggle-plan2").prop('disabled', false);
+	      				$("#toggle-plan1").prop('disabled', false);
+	      				$("#plan1price").css("display","none");
+	      				$("#plan2price").css("display","none");
+	      				$("#plan3price").css("display","none");
+	      			}
+    		  })
+                    
+           
               
               
 

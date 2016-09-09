@@ -10,9 +10,9 @@
 	  }
 		
 	public function adddata($data)
-    {
+  {
 	   $this->db->insert('ads',$data);
-    }
+  }
 
     public function getads($subcat_id)
     {

@@ -74,6 +74,8 @@
 		{
 			return $this->db->count_all("subcategories");
 		}
+
+		
 		
 		
 		

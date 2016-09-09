@@ -83,7 +83,7 @@ $autoload['helper'] = array('url','utility','captcha');
 |
 */
 
-$autoload['config'] = array();
+$autoload['config'] = array('paypal');
 
 
 /*
