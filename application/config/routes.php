@@ -144,6 +144,7 @@ $route['Search/:any'] = "SearchController/searchload";
 /* ############### comments end ############## */
 $route['plans/:any'] = "FrontCategoryController/plans";
 $route['paypal/sucess'] = "PaypalController/sucess";
+$route['paypal/cancel'] = "PaypalController/cancel";
 // commentcreate
 
 $route['404_override'] = '';

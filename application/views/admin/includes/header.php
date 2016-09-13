@@ -131,6 +131,9 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="<?php echo base_url('category/index'); ?>"><i class="fa fa-tags"></i> Transactions</a>
+                    </li>
+                    <li>
                         <a href="<?php echo base_url('home'); ?>"><i class="fa fa-home fa-fw"></i>Home Site</a>
                     </li>
                 </ul>

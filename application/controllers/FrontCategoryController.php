@@ -54,6 +54,7 @@
       public function postanadcreate()
       {
 
+          
          if($this->input->post('plan1price') != "")
          {
              $planprice = $this->input->post('plan1price');
@@ -121,7 +122,15 @@
                         $fileName = implode(',',$images);
                         $this->adsimagesmodel->upload_image($fileName,$last_insertid);
                         //$this->load->view('formsuccess');
-                        redirect("plans/".$last_insertid);
+                        if($this->input->post('pricing') == "free")
+                        {
+                          redirect("category/getsubcate/".$this->input->post('category'));
+                        }
+                        if($this->input->post('pricing') == "priceing")
+                        {
+                          redirect("plans/".$last_insertid);  
+                        }
+                        
                         // redirect("category/getsubcate/".$this->input->post('category'));
 
                 }
@@ -303,6 +312,20 @@
      {
          $data = $this->subcategoriesmodel->getrow($subcatid);
          return $data;
+     }
+
+     function currency_convert($Amount,$currencyfrom,$currencyto)
+     {
+        $buffer=file_get_contents('http://finance.yahoo.com/currency-converter');
+        preg_match_all('/name=(\"|\')conversion-date(\"|\') value=(\"|\')(.*)(\"|\')>/i',$buffer,$match);
+        $date=preg_replace('/name=(\"|\')conversion-date(\"|\') value=(\"|\')(.*)(\"|\')>/i','$4',$match[0][0]);
+        unset($buffer);
+        unset($match);
+        $buffer=file_get_contents('http://finance.yahoo.com/currency/converter-results/'.$date.'/'.$Amount.'-'.strtolower($currencyfrom).'-to-'.strtolower($currencyto).'.html');
+        preg_match_all('/<span class=\"converted-result\">(.*)<\/span>/i',$buffer,$match);
+        $match[0]=preg_replace('/<span class=\"converted-result\">(.*)<\/span>/i','$1',$match[0]);
+        unset ($buffer);
+        return $match[0][0];
      }
   }
 ?>

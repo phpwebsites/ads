@@ -102,8 +102,8 @@
 					  		   	  <div class="plantitle">3 Months Plan</div>
 					  		   	  <div class="plandesc"></div>
 					  		   	  <div class="planprice">
-					  		   	  	<span>250</span>
-					  		   	  	<input type="hidden" name="plan1price" id="plan1price" value="250" style="display:none;">
+					  		   	  	<span>1$</span>
+					  		   	  	<input type="hidden" name="plan1price" id="plan1price" value="" style="display:none;">
 					  		   	  </div>
 					  		   	  <div class="switch">
 					  		   	  	<!-- <input data-toggle="toggle" data-width="100" type="checkbox" id="plan1"> -->
@@ -117,8 +117,8 @@
 					  		   	   <div class="plantitle">6 Months Plan</div>
 					  		   	   <div class="plandesc"></div>
 					  		   	  <div class="planprice">
-					  		   	  	<span>250</span>
-					  		   	  	<input type="hidden" name="plan2price" id="plan2price" value="250" style="display:none;">
+					  		   	  	<span>2$</span>
+					  		   	  	<input type="hidden" name="plan2price" id="plan2price" value="" style="display:none;">
 					  		   	  </div>
 					  		   	  <div class="switch">
 					  		   	  	<input id="toggle-plan2" data-toggle="toggle" data-width="100" type="checkbox" id="plan2">
@@ -130,8 +130,8 @@
 					  		   	   <div class="plantitle">1 Year Plan</div>
 					  		   	   <div class="plandesc"></div>
 					  		   	  <div class="planprice">
-					  		   	  	<span>250</span>
-					  		   	  	<input type="hidden" name="plan3price" id="plan3price" value="250" style="display:none;">
+					  		   	  	<span>3$</span>
+					  		   	  	<input type="hidden" name="plan3price" id="plan3price" value="" style="display:none;">
 					  		   	  </div>
 					  		   	  <div class="switch">
 					  		   	  	<input id="toggle-plan3" data-toggle="toggle" data-width="100" type="checkbox" id="plan3">
@@ -280,6 +280,9 @@
 	      				$("#plan1price").css("display","block");
 	      				$("#plan2price").css("display","none");
 	      				$("#plan3price").css("display","none");
+	      				$("#plan1price").val("3-1");
+	      				$("#plan2price").val("");
+	      				$("#plan3price").val("");
 	      				
 	      			}
 	      			else
@@ -289,6 +292,9 @@
 	      				$("#plan1price").css("display","none");
 	      				$("#plan2price").css("display","none");
 	      				$("#plan3price").css("display","none");
+	      				$("#plan1price").val("");
+	      				$("#plan2price").val("");
+	      				$("#plan3price").val("");
 	      			}
     		  })
 
@@ -300,6 +306,9 @@
 	      				$("#plan1price").css("display","none");
 	      				$("#plan2price").css("display","block");
 	      				$("#plan3price").css("display","none");
+	      				$("#plan1price").val("");
+	      				$("#plan2price").val("6-2");
+	      				$("#plan3price").val("");
 	      			}
 	      			else
 	      			{
@@ -308,6 +317,9 @@
 	      				$("#plan1price").css("display","none");
 	      				$("#plan2price").css("display","none");
 	      				$("#plan3price").css("display","none");
+	      				$("#plan1price").val("");
+	      				$("#plan2price").val("");
+	      				$("#plan3price").val("");
 	      			}
     		  })
 
@@ -319,6 +331,9 @@
 	      				$("#plan1price").css("display","none");
 	      				$("#plan2price").css("display","none");
 	      				$("#plan3price").css("display","block");
+	      				$("#plan1price").val("");
+	      				$("#plan2price").val("");
+	      				$("#plan3price").val("12-3");
 	      			}
 	      			else
 	      			{
@@ -327,6 +342,9 @@
 	      				$("#plan1price").css("display","none");
 	      				$("#plan2price").css("display","none");
 	      				$("#plan3price").css("display","none");
+	      				$("#plan1price").val("");
+	      				$("#plan2price").val("");
+	      				$("#plan3price").val("");
 	      			}
     		  })
                     
