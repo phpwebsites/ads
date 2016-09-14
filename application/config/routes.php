@@ -147,6 +147,10 @@ $route['paypal/sucess'] = "PaypalController/sucess";
 $route['paypal/cancel'] = "PaypalController/cancel";
 // commentcreate
 
+/* ################# Transactions ################# */
+$route['transactions'] = "admin/PaymentController/index";
+/* ################# Transactions End ################# */
+
 $route['404_override'] = '';
 
 

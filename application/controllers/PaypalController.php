@@ -14,8 +14,8 @@
      public function sucess()
      {
 
-        // $paymentdetails = array('ad_id' => $this->session->userdata('ad_id') ,'user_id' => $this->session->userdata('user_id') ,'transaction_id' => $_REQUEST['txn_id']);
-        // $this->payments->addpayment($paymentdetails);       
+        $paymentdetails = array('ad_id' => $this->session->userdata('ad_id') ,'user_id' => $this->session->userdata('user_id') ,'transaction_id' => $_REQUEST['txn_id']);
+        $this->paymentmodel->addpayment($paymentdetails);       
         $this->load->view('sucess');
      }
 
