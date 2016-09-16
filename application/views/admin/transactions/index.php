@@ -44,6 +44,8 @@
                                         <th>User name</th>
                                         <th>Phone Number</th>
                                         <th>Transaction Id</th>
+                                        <th>Plans</th>
+                                        <th>No of days postan ad</th>
                                         <td>Ad Activation Status</td>
                                       </tr>
                                     </thead>
@@ -62,7 +64,6 @@
                                           <?php 
                                              $username =& get_instance(); 
                                              $userdata = $username->getuserdata($row->user_id);
-
                                              echo $userdata->name;
                                           ?>
                                           
@@ -74,7 +75,18 @@
                                           <?php echo $row->transaction_id; ?>
                                         </td>
                                         <td>
-                                          Activated
+                                          <?php echo $row->plans;  ?>
+                                        </td>
+                                        <td>
+                                          <?php 
+                                            $addata =& get_instance();
+                                            $addate = $addata->getaddata($row->ad_id);
+                                            echo time_stamp($addate->createdon);
+                                          ?>
+                                          
+                                        </td>
+                                        <td>
+                                          <a href="">In Active</a>
                                         </td>
                                        
                                         

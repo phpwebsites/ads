@@ -58,7 +58,7 @@
             else
             {
              echo "$days days ago";
-             }
+            }
 
           }
           //Weeks
@@ -67,11 +67,11 @@
 
             if($weeks==1)
             {
-             echo "one week ago";
+              echo "one week ago";
             }
             else
             {
-             echo "$weeks weeks ago";
+              echo "$weeks weeks ago";
             }
 
           }
@@ -86,7 +86,7 @@
             else
             {
              echo "$months months ago";
-             }
+            }
 
           }
           //Years

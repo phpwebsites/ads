@@ -9,12 +9,13 @@
             $this->load->helper('form'); 
             $this->load->library('session');
             $this->load->model('paymentmodel');
+            
    }
 
      public function sucess()
      {
 
-        $paymentdetails = array('ad_id' => $this->session->userdata('ad_id') ,'user_id' => $this->session->userdata('user_id') ,'transaction_id' => $_REQUEST['txn_id']);
+        $paymentdetails = array('ad_id' => $this->session->userdata('ad_id') ,'user_id' => $this->session->userdata('user_id') ,'transaction_id' => $_REQUEST['txn_id'],'plans' => $this->session->userdata('plantime'));
         $this->paymentmodel->addpayment($paymentdetails);       
         $this->load->view('sucess');
      }

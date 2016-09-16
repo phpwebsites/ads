@@ -6,6 +6,8 @@
 	   	  parent::__construct(); 
 	   	  $this->load->model('paymentmodel');
 	   	  $this->load->model('usermodel');
+	   	  $this->load->helper('timeinfo');
+	   	  $this->load->model('adsmodel');
 	   }
 
 	   public function index()
@@ -20,6 +22,12 @@
 	   {
 	   		$userdata = $this->usermodel->get_userdata($user_id);
 	   		return $userdata;
+	   }
+
+	   public function getaddata($adid)
+	   {
+	   		$data = $this->adsmodel->getdescads($adid);
+	   		return $data;
 	   }
 
 	   

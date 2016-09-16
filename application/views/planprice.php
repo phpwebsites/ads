@@ -44,7 +44,7 @@
 					    <tr>
 					      <td>
                   <?php 
-                     $sucessdata = array('ad_id' => $adsresult->id ,'user_id' => $adsresult->user_id ); 
+                     $sucessdata = array('ad_id' => $adsresult->id ,'user_id' => $adsresult->user_id,'plantime' => $pieces[0] ); 
                      $this->session->set_userdata($sucessdata);
                   ?>     
                 </td>
