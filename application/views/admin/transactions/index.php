@@ -86,10 +86,16 @@
                                           
                                         </td>
                                         <td>
-                                          <a href="">In Active</a>
+                                         <?php if($addate->status == 1){ ?>
+                                            <a href="<?php echo base_url('inactive/'.$addate->id);  ?>" id="status" name="<?php echo $addate->id."-1";  ?>" style="text-decoration:none;" >Active</a>
+                                            
+                                         <?php }else{ ?>
+                                            <a href="<?php echo base_url('active/'.$addate->id);  ?>" id="status" name="<?php echo $addate->id."-0";  ?>" style="text-decoration:none;">In Active</a>
+                                         <?php } ?>
+
                                         </td>
                                        
-                                        
+
                                       </tr>
                                   <?php $i++; ?>    
                                   <?php } ?>
@@ -112,3 +118,4 @@
         <!-- /#page-wrapper -->
 </div>
 <!-- /#wrapper -->
+

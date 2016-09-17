@@ -62,6 +62,21 @@
                         readURL(this);
                     })
 
+                // transaction Status active inactive
+                // $("#status").click(function(){
+
+                //    var s = $(this).attr('name');
+                //    alert(s);
+                //    // var res[] = s.split("-");
+                //    //alert(res[0]);
+                // })
+  
+    
+                  
+  
+</script>
+
+
         </script>
 
 </body>

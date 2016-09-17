@@ -149,6 +149,8 @@ $route['paypal/cancel'] = "PaypalController/cancel";
 
 /* ################# Transactions ################# */
 $route['transactions'] = "admin/PaymentController/index";
+$route['active/:any'] = "admin/PaymentController/active";
+$route['inactive/:any'] = "admin/PaymentController/inactive";
 /* ################# Transactions End ################# */
 
 $route['404_override'] = '';

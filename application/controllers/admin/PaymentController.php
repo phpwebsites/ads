@@ -30,6 +30,20 @@
 	   		return $data;
 	   }
 
+	   public function active()
+	   {
+	   	  $adid = $this->uri->segment(2);
+	   	  $this->adsmodel->activeupdate($adid);
+	   	  redirect('transactions');
+	   }
+
+	   public function inactive()
+	   {
+	   	  $id = $this->uri->segment(2);
+	   	  $this->adsmodel->inactiveupdate($id);
+	   	  redirect('transactions');
+	   }
+
 	   
    }
 

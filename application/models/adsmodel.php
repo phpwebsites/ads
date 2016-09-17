@@ -76,5 +76,21 @@
        $query = $this->db->get('ads');
        return $query->result();  
     }
+
+    public function activeupdate($adid)
+    {
+      
+      $data = array('status' => '1');
+      $this->db->where('id',$adid);
+       $this->db->update('ads',$data); 
+      
+    }
+
+    public function inactiveupdate($adid)
+    {
+      $data = array('status' => '0' );
+      $this->db->where('id',$adid);
+      $this->db->update('ads', $data); 
+    }
   }
 ?>
