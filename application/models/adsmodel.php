@@ -49,6 +49,7 @@
     public function getlatestads()
     {
         $this->db->order_by('id','desc');
+        $this->db->where('status',1); 
         $this->db->limit(3);
         $query = $this->db->get('ads');
         return $query->result();    
@@ -91,6 +92,23 @@
       $data = array('status' => '0' );
       $this->db->where('id',$adid);
       $this->db->update('ads', $data); 
+    }
+
+    public function getpopularads()
+    {
+       $this->db->where('status',1); 
+       $this->db->where('adplanprice IS NOT NULL', null, false);
+       $query = $this->db->get('ads');
+       return $query->result();  
+    }
+
+    public function getfreeads()
+    {
+      // $this->db->where('  adplanprice IS', null);
+
+      $this->db->where('adplanprice', NULL);
+      $query = $this->db->get('ads');
+      return $query->result();  
     }
   }
 ?>

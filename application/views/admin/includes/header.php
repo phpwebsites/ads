@@ -94,17 +94,7 @@
                     <li>
                         <a href="<?php echo base_url('subcategory/index'); ?>"><i class="fa fa-tags"></i> Sub Categories</a>
                     </li>
-                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#ads"><i class="fa fa-bullhorn"></i> Ads <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="ads" class="collapse">
-                            <li>
-                                <a href="#">Admin Ads</a>
-                            </li>
-                            <li>
-                                <a href="#">User Ads</a>
-                            </li>
-                        </ul>
-                    </li>
+                    
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#demo1"><i class="fa fa-location-arrow"></i> Locations <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
@@ -131,7 +121,15 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('transactions'); ?>"><i class="fa fa-tags"></i> Transactions</a>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#ads"><i class="fa fa-inr"></i> Transactions <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="ads" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url('transactions'); ?>">Payed Ads</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('freeads'); ?>">Free Ads</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="<?php echo base_url('home'); ?>"><i class="fa fa-home fa-fw"></i>Home Site</a>

@@ -43,6 +43,32 @@
 	   	  $this->adsmodel->inactiveupdate($id);
 	   	  redirect('transactions');
 	   }
+	    public function freeactive()
+	    {
+	   	  $adid = $this->uri->segment(2);
+	   	  $this->adsmodel->activeupdate($adid);
+	   	  $data['adresults'] = $this->adsmodel->getfreeads();
+	   	  $this->load->view('admin/includes/header.php');
+	      $this->load->view('admin/transactions/freeads',$data);		
+	      $this->load->view('admin/includes/footer.php');
+	    }
+
+	   public function freeinactive()
+	   {
+	   	  $id = $this->uri->segment(2);
+	   	  $this->adsmodel->inactiveupdate($id);
+	   	  $data['adresults'] = $this->adsmodel->getfreeads();
+	   	  $this->load->view('admin/includes/header.php');
+	      $this->load->view('admin/transactions/freeads',$data);		
+	      $this->load->view('admin/includes/footer.php');
+	   }
+	   public function freeads()
+	   {
+	   	 $data['adresults'] = $this->adsmodel->getfreeads();
+	   	  $this->load->view('admin/includes/header.php');
+	      $this->load->view('admin/transactions/freeads',$data);		
+	      $this->load->view('admin/includes/footer.php');
+	  }
 
 	   
    }

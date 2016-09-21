@@ -78,9 +78,11 @@
    <div id="load-more">
    	
    </div> -->
+<?php if(count($ads) > 0){ ?>
    <div id="remove_row">
-   	   <button type="button" name="btn-more" id="btn-more" data-vid="<?php echo $adid; ?>" class="btn btn-success form-control">Loarde more</button>
+   	   <button type="button" name="btn-more" id="btn-more" data-vid="<?php echo $adid; ?>" class="btn btn-success form-control">Load more</button>
    </div>
+<?php } ?>
    
 </div>
 

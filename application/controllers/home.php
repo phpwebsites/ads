@@ -84,5 +84,10 @@ class Home extends CI_Controller {
 	{
 		return $this->adsimagesmodel->getimage($id);
 	}
+
+	public function mostpopularads()
+	{
+	  return $this->adsmodel->getpopularads(); 
+	}
  }
 ?>

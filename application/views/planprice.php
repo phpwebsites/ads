@@ -42,18 +42,18 @@
 					  </thead>
 					  <tbody>
 					    <tr>
-					      <td>
+					      <!-- <td> -->
                   <?php 
                      $sucessdata = array('ad_id' => $adsresult->id ,'user_id' => $adsresult->user_id,'plantime' => $pieces[0] ); 
                      $this->session->set_userdata($sucessdata);
                   ?>     
-                </td>
+                <!-- </td> -->
 					      <td><?php echo $adsresult->title; ?></td>
 					      <td><?php echo $adsresult->description;  ?></td>
 					      <td>
 					        <?php 
 					           $category =& get_instance();
-					           $data = $category->getmaincategory($adsresult->id);
+					           $data = $category->getmaincategory($adsresult->category_id);
 					           echo $data->name;
 					        ?>
 					         
@@ -61,7 +61,7 @@
 					      <td>
 					        <?php  
 					        	$subcategory = & get_instance();
-					        	$subdata = $subcategory->getsubcategory($adsresult->id);
+					        	$subdata = $subcategory->getsubcategory($adsresult->subcategory_id);
 					        	echo $subdata->name;
 					        ?>
 					        

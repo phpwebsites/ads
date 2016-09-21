@@ -9,7 +9,7 @@
                            <div class="row">
                               <div class="col-xs-6">Transactions</div>
                               <div class="col-xs-6 text-right">
-					             <!--  <a href="<?php echo base_url('state/add'); ?>" class="btn btn-primary btn-md">Add St ate</a> -->
+                       <!--  <a href="<?php echo base_url('state/add'); ?>" class="btn btn-primary btn-md">Add St ate</a> -->
                               </div>
                            </div>
 
@@ -30,8 +30,8 @@
               <?php if($this->session->flashdata('msg') != ""){ ?>
                 <div class="alert alert-success">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-						<?php echo $this->session->flashdata('msg');  ?>
-			    </div>
+            <?php echo $this->session->flashdata('msg');  ?>
+          </div>
               <?php } ?>
                 
                 <div class="row">
@@ -43,22 +43,20 @@
                                         <th>Add Id </th>
                                         <th>User name</th>
                                         <th>Phone Number</th>
-                                        <th>Transaction Id</th>
-                                        <th>Plans</th>
                                         <th>No of days postan ad</th>
                                         <th>Ad Activation Status</th>
                                       </tr>
                                     </thead>
                                     <tbody>
-                             <?php if(count($payment_result) > 0){ ?>
-                              		<?php $i=1; ?>
-                             	  <?php foreach($payment_result as $row){ ?>
+                             <?php if(count($adresults) > 0){ ?>
+                                  <?php $i=1; ?>
+                                <?php foreach($adresults as $row){ ?>
                                       <tr>
                                         <td>
                                           <?php echo $i; ?>
                                         </td>
                                         <td>
-                                          <?php echo $row->ad_id; ?>
+                                          <?php echo $row->id; ?>
                                         </td>
                                         <td>
                                           <?php 
@@ -72,25 +70,18 @@
                                           <?php echo $userdata->phoneno; ?>
                                         </td>
                                         <td>
-                                          <?php echo $row->transaction_id; ?>
-                                        </td>
-                                        <td>
-                                          <?php echo $row->plans;  ?>
-                                        </td>
-                                        <td>
                                           <?php 
-                                            $addata =& get_instance();
-                                            $addate = $addata->getaddata($row->ad_id);
-                                            echo time_stamp($addate->createdon);
+                                           
+                                            echo time_stamp($row->createdon);
                                           ?>
                                           
                                         </td>
                                         <td>
-                                         <?php if($addate->status == 1){ ?>
-                                            <a href="<?php echo base_url('inactive/'.$addate->id);  ?>" id="status" name="<?php echo $addate->id."-1";  ?>" style="text-decoration:none;" >Active</a>
+                                         <?php if($row->status == 1){ ?>
+                                            <a href="<?php echo base_url('freeinactive/'.$row->id);  ?>" id="status" name="<?php echo $row->id."-1";  ?>" style="text-decoration:none;" >Active</a>
                                             
                                          <?php }else{ ?>
-                                            <a href="<?php echo base_url('active/'.$addate->id);  ?>" id="status" name="<?php echo $addate->id."-0";  ?>" style="text-decoration:none;">In Active</a>
+                                            <a href="<?php echo base_url('freeactive/'.$row->id);  ?>" id="status" name="<?php echo $row->id."-0";  ?>" style="text-decoration:none;">In Active</a>
                                          <?php } ?>
 
                                         </td>
@@ -102,7 +93,7 @@
                            
                             <?php } else{ ?>
                               <tr>
-                             	<td colspan="8" align="center"> No Records.....</td>
+                              <td colspan="8" align="center"> No Records.....</td>
                              </tr>
                            <?php } ?>
                                    

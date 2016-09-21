@@ -28,7 +28,7 @@
 	  {
 	  	  $categoryid = $this->input->post('adscategory');
           $data['ads'] = $this->adsmodel->getcategoryads($categoryid);
-          $this->load->view('search.php',$data);
+          $this->load->view('search.php',$data);  
 	  }
 
     public function searchload()

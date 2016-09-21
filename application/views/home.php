@@ -1,8 +1,7 @@
 <?php $this->load->view('includes/header') ?>
    <section id="slider">
-   		
-					<!-- Carousel -->
-    	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="10000">
+   				<!-- Carousel -->
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="10000">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 			  	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -226,39 +225,37 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
               <?php } ?>
               </div>
                 <div class="tab-pane" id="2">
+                       <?php 
+                          $CI_mostpopularads =& get_instance(); 
+                          $admdata = $CI_mostpopularads->mostpopularads();
+
+                       ?>
+                       <?php
+                         foreach($admdata as $ad_mdata){
+                       ?>
+                    <a href="<?php echo site_url('description/'.$ad_mdata->id); ?>" style="color: #4e4e4e;">
                        <div class="row adbg">
                              <div class="col-xs-1"></div>
                              <div class="col-xs-3">
-                                <img src="<?php echo asset_url(); ?>images/ad1.jpg">
+                                <?php $CI_imagedata =& get_instance(); 
+                                 $imagename = $CI_imagedata -> getimage($ad_mdata->id); ?>
+                              <img src="<?php echo site_url(); ?>uploads/<?php echo $imagename->name;  ?>" style="width: 100%;">
 
                              </div>
                              <div class="col-xs-7">
-                                <h4>Lorumipsum Lorumipsum</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                                <p><b>Price :</b> 222222  <span class="addcat"><b>Posted By:</b>lorumipsum</span> <span class="addcat"><b>Time:</b>1month ago</span></p>
+                                <h4><?php echo $ad_mdata->title; ?></h4>
+                                <p><?php echo $ad_mdata->description; ?></p>
+                                <p><b>Price :</b> <?php echo $ad_mdata->price; ?>  <span class="addcat"><b>Posted By:</b><?php $username = $CI_userdata->userData($ad_mdata->user_id); echo $username->name;  ?></span> <span class="addcat"><b>Time:</b><?php echo time_stamp($ad_mdata->createdon); ?></span></p>
 
                              </div>
                              <div class="col-xs-1"></div>
                      </div>
-                     <div class="row adbg">
-                         <div class="col-xs-1"></div>
-                         <div class="col-xs-3">
-                            <img src="<?php echo asset_url(); ?>images/ad2.jpg">
-
-                         </div>
-                         <div class="col-xs-7">
-                            <h4>Lorumipsum Lorumipsum</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                            <p><b>Price :</b> 201564  <span class="addcat"><b>Posted By:</b>lorumipsum</span> <span class="addcat"><b>Time:</b>1month ago</span></p>
-
-                         </div>
-                         <div class="col-xs-1"></div>
-
-                         
-
-                  </div>
                       
                 </div>
+                </a>
+                 <?php
+                   }
+                 ?>
                 
             </div>
    </div>
