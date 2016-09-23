@@ -12,6 +12,7 @@
             $this->load->helper('form'); 
             $this->load->library("pagination");
             $this->load->helper('text');
+            $this->load->library('email');
 
    }
 
@@ -114,6 +115,29 @@
  	{
  		return $this->commentmodel->commentcount($blogid);
  	}
- }
+
+    public function sendEmail($email,$subject,$message)
+    {
+	 
+      $this->email->from('srinuvasu.villuri@gmail.com');
+      $this->email->to($email);
+      $this->email->subject($subject);
+      $this->email->message($message);
+      if($this->email->send())
+      {
+         echo 'Email send.';
+         exit;
+      }
+     else
+     {
+       show_error($this->email->print_debugger());
+       exit;
+     }
+
+  }
+
+}
+
+  
 
 ?>

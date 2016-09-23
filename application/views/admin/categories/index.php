@@ -1,3 +1,4 @@
+<?php print_r($result); ?>
 <div id="page-wrapper">
 
             <div class="container-fluid">
@@ -57,7 +58,7 @@
                                         </td>
                                         <td class="text-center">
                                  			 <a href="<?php echo base_url("category/update/".$row->id); ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                 			 <a href="<?php echo base_url("category/delete/".$row->id); ?>" onClick="return confirm('Are you sure you want to delete record')" ><i class="fa fa-trash-o"></i></a>
+                                 			 <a href="<?php echo base_url("category/".$row->id); ?>" onClick="return confirm('Are you sure you want to delete record')" ><i class="fa fa-trash-o"></i></a>
                                         </td>
                                         
                                       </tr>

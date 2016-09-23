@@ -75,7 +75,33 @@
 		 {
 		   $getid = $this->categoriesmodel->add($data);
 
-		   $data['result'] = $this->categoriesmodel->getAll(); 
+		  $config = array();
+           $config["base_url"] = base_url() . "category/index";
+           $config["total_rows"] = $this->categoriesmodel->record_count();
+           $config["per_page"] = 10;
+           $config["uri_segment"] = 3;
+           $config['full_tag_open'] = '<ul class="tsc_pagination tsc_paginationA tsc_paginationA01">';
+		   $config['full_tag_close'] = '</ul>';
+		   $config['prev_link'] = '&lt;';
+		   $config['prev_tag_open'] = '<li>';
+		   $config['prev_tag_close'] = '</li>';
+		   $config['next_link'] = '&gt;';
+		   $config['next_tag_open'] = '<li>';
+		   $config['next_tag_close'] = '</li>';
+		   $config['cur_tag_open'] = '<li class="current"><a href="#">';
+		   $config['cur_tag_close'] = '</a></li>';
+		   $config['num_tag_open'] = '<li>';
+		   $config['num_tag_close'] = '</li>';
+		   $config['first_tag_open'] = '<li>';
+		   $config['first_tag_close'] = '</li>';
+		   $config['last_tag_open'] = '<li>';
+		   $config['last_tag_close'] = '</li>';
+		   $config['first_link'] = '&lt;&lt;';
+		   $config['last_link'] = '&gt;&gt;';
+           $this->pagination->initialize($config);
+		   $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+		   $data["result"] = $this->categoriesmodel->getAll($config["per_page"], $page);
+           $data["links"] = $this->pagination->create_links();
            $this->load->view('admin/includes/header');
 		   $this->load->view('admin/categories/index',$data);
 		   $this->load->view('admin/includes/footer');
@@ -84,12 +110,38 @@
 	  
 	  public function delete()
 	  {
-		  $id = $this->uri->segment(3);
+		  $id = $this->uri->segment(2);
 		  $this->categoriesmodel->delete($id);
-		  $data['result'] = $this->categoriesmodel->getAll();
-		  $this->load->view('admin/includes/header');
-		  $this->load->view('admin/categories/index',$data);
-		  $this->load->view('admin/includes/footer');
+		  		    	$config = array();
+                $config["base_url"] = base_url() . "category/index";
+                $config["total_rows"] = $this->categoriesmodel->record_count();
+                $config["per_page"] = 10;
+                $config["uri_segment"] = 3;
+                $config['full_tag_open'] = '<ul class="tsc_pagination tsc_paginationA tsc_paginationA01">';
+		        $config['full_tag_close'] = '</ul>';
+		        $config['prev_link'] = '&lt;';
+		        $config['prev_tag_open'] = '<li>';
+		        $config['prev_tag_close'] = '</li>';
+		        $config['next_link'] = '&gt;';
+		        $config['next_tag_open'] = '<li>';
+		        $config['next_tag_close'] = '</li>';
+		        $config['cur_tag_open'] = '<li class="current"><a href="#">';
+		        $config['cur_tag_close'] = '</a></li>';
+		        $config['num_tag_open'] = '<li>';
+		        $config['num_tag_close'] = '</li>';
+		        $config['first_tag_open'] = '<li>';
+		        $config['first_tag_close'] = '</li>';
+		        $config['last_tag_open'] = '<li>';
+		        $config['last_tag_close'] = '</li>';
+		        $config['first_link'] = '&lt;&lt;';
+		        $config['last_link'] = '&gt;&gt;';
+                $this->pagination->initialize($config);
+		        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+		        $data["result"] = $this->categoriesmodel->getAll($config["per_page"], $page);
+		        $data["links"] = $this->pagination->create_links(); 	
+		        $this->load->view('admin/includes/header');
+		        $this->load->view('admin/categories/index',$data);
+		        $this->load->view('admin/includes/footer');
 	  }
 
 	  public function update()
@@ -120,7 +172,33 @@
 		    {
 		    	
 		    	$this->categoriesmodel->update($data , $id);
-		    	$data['result'] = $this->categoriesmodel->getAll(); 
+		    	$config = array();
+                $config["base_url"] = base_url() . "category/index";
+                $config["total_rows"] = $this->categoriesmodel->record_count();
+                $config["per_page"] = 10;
+                $config["uri_segment"] = 3;
+                $config['full_tag_open'] = '<ul class="tsc_pagination tsc_paginationA tsc_paginationA01">';
+		        $config['full_tag_close'] = '</ul>';
+		        $config['prev_link'] = '&lt;';
+		        $config['prev_tag_open'] = '<li>';
+		        $config['prev_tag_close'] = '</li>';
+		        $config['next_link'] = '&gt;';
+		        $config['next_tag_open'] = '<li>';
+		        $config['next_tag_close'] = '</li>';
+		        $config['cur_tag_open'] = '<li class="current"><a href="#">';
+		        $config['cur_tag_close'] = '</a></li>';
+		        $config['num_tag_open'] = '<li>';
+		        $config['num_tag_close'] = '</li>';
+		        $config['first_tag_open'] = '<li>';
+		        $config['first_tag_close'] = '</li>';
+		        $config['last_tag_open'] = '<li>';
+		        $config['last_tag_close'] = '</li>';
+		        $config['first_link'] = '&lt;&lt;';
+		        $config['last_link'] = '&gt;&gt;';
+                $this->pagination->initialize($config);
+		        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+		        $data["result"] = $this->categoriesmodel->getAll($config["per_page"], $page);
+                $data["links"] = $this->pagination->create_links(); 
 		    	$this->load->view('admin/includes/header');
 		   		$this->load->view('admin/categories/index',$data);
 		        $this->load->view('admin/includes/footer');	

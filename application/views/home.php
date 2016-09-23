@@ -225,6 +225,8 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
               <?php } ?>
               </div>
                 <div class="tab-pane" id="2">
+                <div class="row" style="padding-left: 70px;">
+                  <div class="col-xs-11">
                        <?php 
                           $CI_mostpopularads =& get_instance(); 
                           $admdata = $CI_mostpopularads->mostpopularads();
@@ -235,22 +237,24 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                        ?>
                     <a href="<?php echo site_url('description/'.$ad_mdata->id); ?>" style="color: #4e4e4e;">
                        <div class="row adbg">
-                             <div class="col-xs-1"></div>
-                             <div class="col-xs-3">
+
+                             <div class="col-xs-2"></div>
+                             <div class="col-xs-2">
                                 <?php $CI_imagedata =& get_instance(); 
                                  $imagename = $CI_imagedata -> getimage($ad_mdata->id); ?>
                               <img src="<?php echo site_url(); ?>uploads/<?php echo $imagename->name;  ?>" style="width: 100%;">
 
                              </div>
-                             <div class="col-xs-7">
+                             <div class="col-xs-6">
                                 <h4><?php echo $ad_mdata->title; ?></h4>
                                 <p><?php echo $ad_mdata->description; ?></p>
                                 <p><b>Price :</b> <?php echo $ad_mdata->price; ?>  <span class="addcat"><b>Posted By:</b><?php $username = $CI_userdata->userData($ad_mdata->user_id); echo $username->name;  ?></span> <span class="addcat"><b>Time:</b><?php echo time_stamp($ad_mdata->createdon); ?></span></p>
 
                              </div>
-                             <div class="col-xs-1"></div>
+                             <div class="col-xs-2"></div>
                      </div>
-                      
+                     </div>
+                  </div>    
                 </div>
                 </a>
                  <?php
@@ -311,17 +315,27 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
            break;
            case $i == 8:
               $boxshadow = "10px 10px 5px #888888";
-              $bgcolor = " #E1A107";
+              $bgcolor = "#E1A107";
+           break;
+           case $i == 9:
+              $boxshadow = "10px 10px 5px #888888";
+              $bgcolor = "#D4849F";
+           break;
+           case $i == 10:
+              
+              $boxshadow = "10px 10px 5px #888888";
+              $bgcolor = "#FFD17C";
            break;
            default:
                $boxshadow = "10px 10px 5px #888888";
-               $bgcolor = "#72A1D9";
+               $bgcolor = "#A776B8";
            break;
            
            
          }
       ?>
         $(".category<?php echo $i; ?>").mouseover(function(){
+            
             $(".category<?php echo $i; ?>").css("box-shadow", <?php echo  "'".$boxshadow."'"; ?>);
             $("#bgcolor<?php echo $i; ?>").css("background", <?php echo "'".$bgcolor."'"; ?>);
             $("#viewall<?php echo $i; ?>").css("color", "#FFF");

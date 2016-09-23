@@ -88,7 +88,7 @@ $route['add/category'] = "admin/CategoryController/add";
 $route['category/insert'] = "admin/CategoryController/insert";
 $route['category/update/:any'] = "admin/CategoryController/update";
 $route['category/updateinsert'] = "admin/CategoryController/updateinsert";
-$route['category/delete/:any'] = "admin/CategoryController/delete";
+$route['category/:any'] = "admin/CategoryController/delete";
 /*#################### Category End ################### */
 
 /*#################### Category Start ################### */
@@ -98,7 +98,7 @@ $route['add/subcategory'] = "admin/SubCategoryController/add";
 $route['subcategory/insert'] = "admin/SubCategoryController/insert";
 $route['subcategory/update/:any'] = "admin/SubCategoryController/update";
 $route['subcategory/updateinsert'] = "admin/SubCategoryController/updateinsert";
-$route['subcategory/delete/:any'] = "admin/SubCategoryController/delete";
+$route['subcategory/:any'] = "admin/SubCategoryController/delete";
 /*#################### Front Category Start ################### */
 $route['category/viewall'] = "FrontCategoryController/viewall";
 $route['category/getsubcate/:any'] = "FrontCategoryController/getallsubcategory";

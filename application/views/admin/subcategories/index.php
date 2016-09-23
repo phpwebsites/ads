@@ -63,7 +63,7 @@
                                         </td>
                                         <td class="text-center">
                                  			 <a href="<?php echo base_url("subcategory/update/".$row->id); ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                 			 <a href="<?php echo base_url("subcategory/delete/".$row->id); ?>" onClick="return confirm('Are you sure you want to delete record')" ><i class="fa fa-trash-o"></i></a>
+                                 			 <a href="<?php echo base_url("subcategory/".$row->id); ?>" onClick="return confirm('Are you sure you want to delete record')" ><i class="fa fa-trash-o"></i></a>
                                         </td>
                                         
                                       </tr>

@@ -93,7 +93,7 @@
 								<li><a href="services.html">Services</a></li>
 								<li><a href="portfolio.html">Portfolio</a></li>
 								<li><a href="<?php echo base_url('blog'); ?>">Blog</a></li>
-								<li><a href="contact-us.html">Contact Us</a></li>
+								<li><a href="<?php echo base_url('contactus'); ?>">Contact Us</a></li>
 							</ul>
 					</div>
           </div>

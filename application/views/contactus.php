@@ -46,4 +46,8 @@ can provide a solution to your unique business needs..</p>
 	</div>
   </div>
 </section>
+<?php 
+  $CI =& get_instance();
+  $CI->sendEmail('srini.newbiesoftsolutions@gmail.com','sadfsdf','sfdsdfdsfdfrweewrewrert');
+?>
 <?php $this->load->view('includes/footer') ?>
