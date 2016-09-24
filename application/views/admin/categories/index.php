@@ -1,4 +1,3 @@
-<?php print_r($result); ?>
 <div id="page-wrapper">
 
             <div class="container-fluid">

@@ -28,10 +28,10 @@
 <footer class="bgfooter2">
    <div class="row">
      <div class="col-xs-3">
-        <b style="color: #B9B0B0;">Info</b>
+        <b style="color: #B9B0B0;">Links</b>
      </div>
      <div class="col-xs-3">
-        <b style="color: #B9B0B0;">About Us</b>
+        <b style="color: #B9B0B0;">Info</b>
      </div>
      <div class="col-xs-3">
         <b style="color: #B9B0B0;">subscribe</b>
@@ -46,16 +46,15 @@
                     <ul class="list-unstyled footerul">
                        <li><a href="">Home</a></li>
                        <li><a href="">Aboutus</a></li>
-                       <li><a href="">Services</a></li>
-                       <li><a href="">Blog</a></li>
+                       <li><a href="<?php echo base_url('blog'); ?>">Blog</a></li>
+                       
                     </ul>
               </div>
               <div class="col-xs-3">
                    <ul class="list-unstyled footerul">
                        <li><a href="">Home</a></li>
-                       <li><a href="">Aboutus</a></li>
-                       <li><a href="">Services</a></li>
-                       <li><a href="">Blog</a></li>
+                       <li><a href="">privacy policy</a></li>
+                       <li><a href="">terms and conditions</a></li>
                     </ul>
               </div>
               <div class="col-xs-3">
@@ -69,11 +68,10 @@
               </div>
               <div class="col-xs-3">
                   <ul class="list-unstyled footerul">
-                     <li>Lorumipsum</li>
-                     <li>Do-no:15-6-45</li>
-                     <li>Lorumipsum Lorumipsum</li>
-                     <li>Lorumipsum Lorumipsum</li>
-                     <li>Lorumipsum Lorumipsum Lorumipsum</li>
+                     <li>MIG-285,<li>
+                     <li>D.No : 39-33-99/3</li>
+                     <li>Near East Park,Madhavadhara Vuda Layout,Visakhapatnam-18 </li>
+                     <li><a href="<?php echo base_url('contactus'); ?>">See More...</a></li>
 
                   </ul>
               </div>

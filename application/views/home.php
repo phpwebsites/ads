@@ -111,7 +111,7 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                   </ul>
                   <hr class="hr<?php echo $i; ?>">
                   <div class="text-center" id="bgcolor<?php echo $i; ?>"> 
-                    <a href="<?php echo base_url("category/getsubcate/".$category_data->id) ?>" style="color: #4E4E4E;" id="viewall4">View All</a>
+                    <a href="<?php echo base_url("getsubcate/".$category_data->id) ?>" style="color: #4E4E4E;" id="viewall4">View All</a>
                   </div>
 
 

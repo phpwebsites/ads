@@ -75,7 +75,7 @@
    				
    			</div>
    		</div>
-   		<nav class="navbar navbar-inverse nav-custom">
+   		<!-- <nav class="navbar navbar-inverse nav-custom">
    			<div class="container">
 					<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -92,11 +92,16 @@
 								<li><a href="about-us.html">About Us</a></li>
 								<li><a href="services.html">Services</a></li>
 								<li><a href="portfolio.html">Portfolio</a></li>
-								<li><a href="<?php echo base_url('blog'); ?>">Blog</a></li>
-								<li><a href="<?php echo base_url('contactus'); ?>">Contact Us</a></li>
+								<li><a href="<?php //echo base_url('blog'); ?>">Blog</a></li>
+								<li><a href="<?php //echo base_url('contactus'); ?>">Contact Us</a></li>
 							</ul>
 					</div>
           </div>
-   		</nav>
+   		</nav> -->
+      <div class="row">
+        <div class="col-xs-12">
+          
+        </div>
+      </div>
    	
    </header>

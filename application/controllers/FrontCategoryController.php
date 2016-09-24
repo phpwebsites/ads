@@ -32,7 +32,7 @@
       public function getallsubcategory()
       {
          $data['categories'] = $this->categoriesmodel->getAllcategories();
-         $id = $this->uri->segment(3);
+         $id = $this->uri->segment(2);
          $subcatdata['subcategories'] = $this->subcategoriesmodel->getSubcategories($id);
          $this->load->view('viewall',$subcatdata);
       }

@@ -101,7 +101,7 @@ $route['subcategory/updateinsert'] = "admin/SubCategoryController/updateinsert";
 $route['subcategory/:any'] = "admin/SubCategoryController/delete";
 /*#################### Front Category Start ################### */
 $route['category/viewall'] = "FrontCategoryController/viewall";
-$route['category/getsubcate/:any'] = "FrontCategoryController/getallsubcategory";
+$route['getsubcate/:any'] = "FrontCategoryController/getallsubcategory";
 
 /*#################### Category End ################### */
 
