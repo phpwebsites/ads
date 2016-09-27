@@ -94,7 +94,10 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
             <?php foreach($category as $category_data) { ?>
             <div class="col-xs-3 catheight" style="<?php if($i >= 5){ echo 'margin-top:25px;'; } ?>">
                 <div class="category<?php echo $i; ?>">
-                  <a href="" class="btn btn-default<?php echo $i; ?> btn-circle"><i class="glyphicon glyphicon-asterisk"></i></a>
+                  <a href="" class="btn btn-default<?php echo $i; ?> btn-circle">
+                      <!-- <i class="glyphicon glyphicon-asterisk"></i> -->
+                      <img src="<?php echo base_url(); ?>uploads/category/<?php echo $category_data->image; ?>" />
+                  </a>
                   <h5 class="add_name"><strong><?php echo $category_data->name;  ?></strong></h5>
                   <ul class="list-unstyled text-justify" style="padding: 15px;" >
                     

@@ -33,6 +33,13 @@
                          <span class="text-danger"><?php echo form_error('name'); ?></span>
                          </div>
                      </div>
+                     <div class="form-group">
+                         <label class="control-label col-sm-2" for="email">Image:</label>
+                         <div class="col-sm-7">
+                         <input type="file" class="form-control" id="image" name="image"  placeholder="Enter Name">
+                         <span class="text-danger"><?php echo form_error('image'); ?></span>
+                         </div>
+                     </div>
                     <div class="form-group">
                          <div class="col-sm-offset-2 col-sm-7">
                              <button type="submit" class="btn btn-default">Submit</button>

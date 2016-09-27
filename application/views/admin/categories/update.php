@@ -13,6 +13,11 @@
                             <li class="active">
                                 <i class="fa fa-user"></i> Category
                             </li>
+                            <li style="margin-left: 70%;"> 
+                               <a href="<?php echo base_url('category/index'); ?>">
+                                 <img src="<?php echo base_url(); ?>assets/admin/images/backarrow.png"><span style="padding-left: 5px;font-size: 15px;">Back</span>
+                               </a>
+                            </li>
                         </ol>
                     </div>
                 </div>
@@ -30,10 +35,25 @@
                          <label class="control-label col-sm-2" for="email">Name:</label>
                          <div class="col-sm-7">
                          <input type="text" class="form-control" id="name" name="name"  placeholder="Enter Title" value="<?php echo $result->name; ?>">
+                         <span class="text-danger"><?php echo form_error('name'); ?></span>
                          <input type="hidden" name="categoriesid" id="categoriesid" value="<?php echo $result->id;  ?>" />
                          </div>
                      </div>
-                  
+                     <div class="form-group">
+                         <label class="control-label col-sm-2">Image:</label>
+                         <div class="col-sm-7">
+                             <input type="file" name="image" id="blogimageupdate" class="form-control" />
+                         </div>
+                         <span class="text-danger"><?php echo form_error('image'); ?></span>
+                         
+                     </div>
+                     <div class="form-group">
+                        <label class="control-label col-sm-2"></label>
+                        <div class="col-sm-7">
+                          <img src="<?php echo base_url(); ?>/uploads/<?php echo $result->image; ?>" id="image_upload_preview">  
+                        </div>
+                         
+                     </div>
                     <div class="form-group">
                          <div class="col-sm-offset-2 col-sm-7">
                              <button type="submit" class="btn btn-default">Submit</button>

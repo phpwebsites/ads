@@ -60,7 +60,7 @@
                         	 <ul class="list-unstyled user_data">
                             <li><a href="<?php echo base_url("user/logout"); ?>"  class="btn btn-theme">Log Out</a></li>
                                <li class="dropdown">
-                                 <a href="Home/userProfile" class="btn btn-theme" id=""><?php echo $this->session->userdata('username'); ?></a> 
+                                 <a href="<?php echo base_url('administrator'); ?>" class="btn btn-theme" id=""><?php echo $this->session->userdata('username'); ?></a> 
                                </li>
                              </ul>
                         <?php } else{ ?>        

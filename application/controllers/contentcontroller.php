@@ -118,7 +118,16 @@
 
     public function sendEmail($email,$subject,$message)
     {
-	 
+	    $config['protocol'] = "smtp";
+      // does not have to be gmail
+      $config['smtp_host'] = 'ssl://smtp.gmail.com'; 
+      $config['smtp_port'] = '465';
+      $config['smtp_user'] = '';
+      $config['smtp_pass'] = '*******';
+      $config['mailtype'] = 'html';
+      $config['charset'] = 'utf-8';
+      $config['newline'] = "\r\n";
+      $config['wordwrap'] = TRUE;
       $this->email->from('srinuvasu.villuri@gmail.com');
       $this->email->to($email);
       $this->email->subject($subject);
