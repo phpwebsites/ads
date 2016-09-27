@@ -118,29 +118,33 @@
 
     public function sendEmail($email,$subject,$message)
     {
-	    $config['protocol'] = "smtp";
-      // does not have to be gmail
-      $config['smtp_host'] = 'ssl://smtp.gmail.com'; 
-      $config['smtp_port'] = '465';
-      $config['smtp_user'] = '';
-      $config['smtp_pass'] = '*******';
+	    $config = array();
+      $config['useragent']           = "CodeIgniter";
+      $config['mailpath']            = "/usr/bin/sendmail"; // or "/usr/sbin/sendmail"
+      $config['protocol']            = "smtp";
+      $config['smtp_host']           = "ssl://smtp.googlemail.com";
+      $config['smtp_port']           = "465";
+      $config['smtp_user'] = 'vsv1414@gmail.com';
+      $config['smtp_pass'] = '';
       $config['mailtype'] = 'html';
-      $config['charset'] = 'utf-8';
-      $config['newline'] = "\r\n";
+      $config['charset']  = 'utf-8';
+      $config['newline']  = "\r\n";
       $config['wordwrap'] = TRUE;
-      $this->email->from('srinuvasu.villuri@gmail.com');
+      $this->load->library('email');
+      $this->email->initialize($config);
+      $this->email->from('srini.newbiesoftsolutions@gmail.com');
       $this->email->to($email);
       $this->email->subject($subject);
       $this->email->message($message);
       if($this->email->send())
       {
          echo 'Email send.';
-         exit;
+       
       }
      else
      {
        show_error($this->email->print_debugger());
-       exit;
+       
      }
 
   }
