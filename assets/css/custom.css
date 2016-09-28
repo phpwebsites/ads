@@ -126,41 +126,41 @@ body{background: #fff;font-family: 'Open Sans',sans-serif;color: #4e4e4e;line-he
 .secondcategory{margin-top: 40px;margin-left: -30px;}
 .change-color li a{color: #4E4E4E;}
  li span {float: right;}
-.category1{border-top: 3px solid #72A1D9;padding-top: 15px;background:#FFF;}
-.category2{border-top: 3px solid #D4849F;padding-top: 15px;background:#FFF;}
-.category3{border-top: 3px solid #A776B8;padding-top: 15px;background:#FFF;}
+.category1{border-top: 3px solid #155FB7;padding-top: 15px;background:#FFF;}
+.category2{border-top: 3px solid #A0037D;padding-top: 15px;background:#FFF;}
+.category3{border-top: 3px solid #880FB2;padding-top: 15px;background:#FFF;}
 .category4{border-top: 3px solid #DB3A2F;padding-top: 15px;background:#FFF;}
-.category5{border-top: 3px solid #FFD17C;padding-top: 15px;background:#FFF;}
-.category6{border-top: 3px solid #4CB38B;padding-top: 15px;background:#FFF;}
-.category7{border-top: 3px solid #435C70;padding-top: 15px;background:#FFF;}
-.category8{border-top: 3px solid #E1A107;padding-top: 15px;background:#FFF;}
-.category9{border-top: 3px solid #D4849F;padding-top: 15px;background:#FFF;}
-.category10{border-top: 3px solid #FFD17C;padding-top: 15px;background:#FFF;}
+.category5{border-top: 3px solid #F09D05;padding-top: 15px;background:#FFF;}
+.category6{border-top: 3px solid #442097;padding-top: 15px;background:#FFF;}
+.category7{border-top: 3px solid #09922C;padding-top: 15px;background:#FFF;}
+.category8{border-top: 3px solid #E0447F;padding-top: 15px;background:#FFF;}
+.category9{border-top: 3px solid #49B2B1;padding-top: 15px;background:#FFF;}
+.category10{border-top: 3px solid #F97728;padding-top: 15px;background:#FFF;}
 .category11{border-top: 3px solid #A776B8;padding-top: 15px;background:#FFF;}
 .category12{border-top: 3px solid #FFD17C;padding-top: 15px;background:#FFF;}
 
 .btn-circle{width: 40px;height: 40px;padding: 5px 7px;font-size: 25px;border-radius: 35px;line-height: 0;}
 .add_name{background-color: rgba(199, 195, 195, 0.13);padding: 5px;}
-.btn-default1:hover {color: #FFF;background-color: #72A1D9;border-color: #72A1D9;}
-.btn-default1 {color: #FFF;background-color: #72A1D9;border-color: #72A1D9;}
-.btn-default2 {color: #FFF;background-color: #D4849F;border-color: #D4849F;}
-.btn-default2:hover {color: #FFF;background-color: #D4849F;border-color: #D4849F;}
-.btn-default3 {color: #FFF;background-color: #A776B8;border-color: #F2F2F2;}
-.btn-default3:hover {color: #FFF;background-color: #A776B8;border-color: #F2F2F2;}
+.btn-default1:hover {color: #FFF;background-color: #155FB7;border-color: #155FB7;}
+.btn-default1 {color: #FFF;background-color: #155FB7;border-color: #155FB7;}
+.btn-default2 {color: #FFF;background-color: #A0037D;border-color: #A0037D;}
+.btn-default2:hover {color: #FFF;background-color: #A0037D;border-color: #A0037D;}
+.btn-default3 {color: #FFF;background-color: #880FB2;border-color: #880FB2;}
+.btn-default3:hover {color: #FFF;background-color: #880FB2;border-color: #880FB2;}
 .btn-default4 {color: #FFF;background-color: #DB3A2F;border-color: #DB3A2F;}
 .btn-default4:hover {color: #FFF;background-color: #DB3A2F;border-color:#DB3A2F;}
-.btn-default5 {color: #FFF;background-color: #FFD17C;border-color: #FFD17C;}
-.btn-default5:hover {color: #FFF;background-color: #FFD17C;border-color:#FFD17C;}
-.btn-default6 {color: #FFF;background-color: #4CB38B;;border-color: #4CB38B;}
-.btn-default6:hover {color: #FFF;background-color: #4CB38B;border-color:#4CB38B;}
-.btn-default7 {color: #FFF;background-color: #435C70;border-color: #435C70;}
-.btn-default7:hover {color: #FFF;background-color: #435C70;border-color:#435C70;}
-.btn-default8 {color: #FFF;background-color: #E1A107;border-color: #E1A107;}
-.btn-default8:hover {color: #FFF;background-color: #E1A107;border-color:#E1A107;}
-.btn-default9 {color: #FFF;background-color: #D4849F;border-color: #D4849F;}
-.btn-default9:hover {color: #FFF;background-color: #D4849F;border-color:#D4849F;}
-.btn-default10 {color: #FFF;background-color: #FFD17C;border-color: #FFD17C;}
-.btn-default10:hover {color: #FFF;background-color: #FFD17C;border-color:#FFD17C;}
+.btn-default5 {color: #FFF;background-color: #F09D05;border-color: #F09D05;}
+.btn-default5:hover {color: #FFF;background-color: #F09D05;border-color:#F09D05;}
+.btn-default6 {color: #FFF;background-color: #442097;;border-color: #442097;}
+.btn-default6:hover {color: #FFF;background-color: #442097;border-color:#442097;}
+.btn-default7 {color: #FFF;background-color: #09922C;border-color: #09922C;}
+.btn-default7:hover {color: #FFF;background-color: #09922C;border-color:#09922C;}
+.btn-default8 {color: #FFF;background-color: #E0447F;border-color: #E0447F;}
+.btn-default8:hover {color: #FFF;background-color: #E0447F;border-color:#E0447F;}
+.btn-default9 {color: #FFF;background-color: #49B2B1;border-color: #49B2B1;}
+.btn-default9:hover {color: #FFF;background-color: #49B2B1;border-color:#49B2B1;}
+.btn-default10 {color: #FFF;background-color: #F97728;border-color: #F97728;}
+.btn-default10:hover {color: #FFF;background-color: #F97728;border-color:#F97728;}
 .btn-default11 {color: #FFF;background-color: #A776B8;border-color: #A776B8;}
 .btn-default11:hover {color: #FFF;background-color: #A776B8;border-color:#A776B8;}
 .btn-default12 {color: #FFF;background-color: #FFD17C;border-color: #FFD17C;}
@@ -168,16 +168,16 @@ body{background: #fff;font-family: 'Open Sans',sans-serif;color: #4e4e4e;line-he
 
 
 
-.hr1{border-top: 1px solid #72A1D9;}
-.hr2{border-top: 1px solid #D4849F;}
-.hr3{border-top: 1px solid #A776B8;}
+.hr1{border-top: 1px solid #155FB7;}
+.hr2{border-top: 1px solid #A0037D;}
+.hr3{border-top: 1px solid #880FB2;}
 .hr4{border-top: 1px solid #DB3A2F;}
-.hr5{border-top: 1px solid #FFD17C;}
-.hr6{border-top: 1px solid #4CB38B;}
-.hr7{border-top: 1px solid #435C70;}
-.hr8{border-top: 1px solid #E1A107;}
-.hr9{border-top: 1px solid #D4849F;}
-.hr10{border-top: 1px solid #FFD17C;}
+.hr5{border-top: 1px solid #F09D05;}
+.hr6{border-top: 1px solid #442097;}
+.hr7{border-top: 1px solid #09922C;}
+.hr8{border-top: 1px solid #E0447F;}
+.hr9{border-top: 1px solid #49B2B1;}
+.hr10{border-top: 1px solid #F97728;}
 .hr11{border-top: 1px solid #A776B8;}
 .hr12{border-top: 1px solid #FFD17C;}
 .hr13{border-top: 1px solid #E1A107;}

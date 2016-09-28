@@ -290,15 +290,15 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
          switch ($i) {
            case $i == 1:
               $boxshadow = "10px 10px 5px #888888";
-              $bgcolor = "#72A1D9";
+              $bgcolor = "#155FB7";
              break;
            case $i == 2:
               $boxshadow = "10px 10px 5px #888888";
-              $bgcolor = "#D4849F";
+              $bgcolor = "#A0037D";
              break;
            case $i == 3:
               $boxshadow = "10px 10px 5px #888888";
-              $bgcolor = "#A776B8";
+              $bgcolor = "#880FB2";
              break;
            case $i == 4:
               $boxshadow = "10px 10px 5px #888888";
@@ -306,28 +306,28 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
              break;
            case $i == 5:
               $boxshadow = "10px 10px 5px #888888";
-              $bgcolor = "#FFD17C";
+              $bgcolor = "#F09D05";
              break;
            case $i == 6:
               $boxshadow = "10px 10px 5px #888888";
-              $bgcolor = "#4CB38B";
+              $bgcolor = "#442097";
              break;
            case $i == 7:
               $boxshadow = "10px 10px 5px #888888";
-              $bgcolor = "#435C70";
+              $bgcolor = "#09922C";
            break;
            case $i == 8:
               $boxshadow = "10px 10px 5px #888888";
-              $bgcolor = "#E1A107";
+              $bgcolor = "#E0447F";
            break;
            case $i == 9:
               $boxshadow = "10px 10px 5px #888888";
-              $bgcolor = "#D4849F";
+              $bgcolor = "#49B2B1";
            break;
            case $i == 10:
               
               $boxshadow = "10px 10px 5px #888888";
-              $bgcolor = "#FFD17C";
+              $bgcolor = "#F97728";
            break;
            default:
                $boxshadow = "10px 10px 5px #888888";
