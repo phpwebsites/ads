@@ -22,14 +22,8 @@
   <script type="text/javascript" src="<?php echo asset_url(); ?>js/bootstrap.js"></script> 
   <script type="text/javascript" src="<?php echo asset_url(); ?>js/jqzoom/bootstrap-magnify.min.js"></script>
   <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-  
-  
-  
- 
 </head>
-
 <body>
-
    <header id="header">
    		<div class="top-bar">
    			<div class="container">

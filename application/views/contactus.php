@@ -48,6 +48,6 @@ can provide a solution to your unique business needs..</p>
 </section>
 <?php 
   $CI =& get_instance();
-  $CI->sendEmail('srini.newbiesoftsolutions@gmail.com','sadfsdf','sfdsdfdsfdfrweewrewrert');
+  echo $CI->encript();
 ?>
 <?php $this->load->view('includes/footer') ?>

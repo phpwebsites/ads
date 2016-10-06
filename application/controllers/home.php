@@ -39,8 +39,6 @@ class Home extends CI_Controller {
 	{
 		$data = $this->categoriesmodel->getAllcategories();
 		return $data;
-
-	
     }
 
     public function subcategories($id)

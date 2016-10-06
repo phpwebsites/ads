@@ -231,11 +231,121 @@
                              Are you new user? register <a href="javascript:void(o)" id="register1">Here</a>
                           </div>
                       </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-4" for="email"></label>
+                        <div class="col-xs-8">
+                           <a href="javascript:void(0)" id="fpwd">Forgot Password</a>
+                        </div>
+                      </div>
                      
                     <?php echo form_close(); ?>
              </div>
           </div>
+          </div>
+          </div>
+          </div>
 <!-- ####### Login end ############ -->
+
+<!-- ####### forgotpwd start ############ -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="fpwdform">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-center">Forgot Password</h4>
+      </div> <!-- modal header end -->
+    <div class="row formdown">
+           <div class="col-xs-12">
+                  
+           <?php 
+              $attributes =array("class" => "form-horizontal", "id" => "login", "role" => "form" );
+              echo form_open('UserController/forgotpwd',$attributes);
+           ?>
+                        <div class="form-group">
+                          <div class="col-xs-12 text-center">
+                                <?php echo $this->session->flashdata('loginerror_msg'); ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-4" for="email">Email:</label>
+                          <div class="col-sm-8">
+                            <input type="text" class="form-control" name="email" id="email" placeholder="Enter email">
+                            <span class="text-danger"><?php echo form_error('email'); ?></span>
+                          </div>
+                        </div>
+                       <div class="form-group">        
+                          <div class="col-sm-offset-4 col-sm-2">
+                            <input type="submit" name="login" id="login" class="btn btn-default" value="Submit" />
+                          </div>
+                          <div class="col-sm-6">
+                             
+                          </div>
+                      </div>
+                    <?php echo form_close(); ?>
+             </div>
+          </div>
+        </div>
+        </div>
+        </div>
+
+<!-- ####### forgotpwd end ############ -->
+
+<!-- ####### reset password start ############ -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="resetpasswordform">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-center">Forgot Password</h4>
+      </div> <!-- modal header end -->
+    <div class="row formdown">
+           <div class="col-xs-12">
+                  
+           <?php 
+              $attributes =array("class" => "form-horizontal", "id" => "login", "role" => "form" );
+              echo form_open('UserController/passwordcreate',$attributes);
+           ?>
+                        <div class="form-group">
+                          <div class="col-xs-12 text-center">
+                                <?php echo $this->session->flashdata('loginerror_msg'); ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-4" for="email">New Password:</label>
+                          <div class="col-sm-8">
+                            <input type="password" class="form-control" name="newpassword" id="newpassword" placeholder="New Password">
+                            <span class="text-danger"><?php echo form_error('newpassword'); ?></span>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-4" for="email">Old Password:</label>
+                          <div class="col-sm-8">
+                            <input type="password" class="form-control" name="conformpassword" id="conformpassword" placeholder="Old Password">
+                            
+                            <?php if($this->session->flashdata('hash') != null){ ?>
+                            <input type="hidden" name="hash"  class="form-control" value="<?php echo $this->session->flashdata('hash'); ?>">
+                           
+                            <?php } ?>
+                            <span class="text-danger"><?php echo form_error('conformpassword'); ?></span>
+                          </div>
+                        </div>
+                       
+                       <div class="form-group">        
+                          <div class="col-sm-offset-4 col-sm-2">
+                            <input type="submit" name="login" id="login" class="btn btn-default" value="Submit" />
+                          </div>
+                          <div class="col-sm-6">
+                             
+                          </div>
+                      </div>
+                    <?php echo form_close(); ?>
+             </div>
+          </div>
+        </div>
+        </div>
+        </div>
+<!-- ####### reset password end ############ -->
+
 <!--###############Bootstrap Models end##############-->
 
 
@@ -255,6 +365,12 @@
      $("#register1").click(function(){
         
         $("#signup").modal("show"); 
+        $("#login_modal").modal("hide"); 
+      
+     });
+     $("#fpwd").click(function(){
+        
+        $("#fpwdform").modal("show"); 
         $("#login_modal").modal("hide"); 
       
      });
@@ -301,6 +417,14 @@
         if($this->session->flashdata('signupmsg') != ""){
      ?>
            $("#signup").modal("show"); 
+     <?php
+      }
+     ?>
+
+     <?php
+        if($this->session->flashdata('resetpasswordmsg') != ""){
+     ?>
+           $("#resetpasswordform").modal("show"); 
      <?php
       }
      ?>

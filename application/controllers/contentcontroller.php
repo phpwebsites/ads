@@ -13,6 +13,7 @@
             $this->load->library("pagination");
             $this->load->helper('text');
             $this->load->library('email');
+            $this->load->library('encryption');
 
    }
 
@@ -116,38 +117,14 @@
  		return $this->commentmodel->commentcount($blogid);
  	}
 
-    public function sendEmail($email,$subject,$message)
-    {
-	    $config = array();
-      $config['useragent']           = "CodeIgniter";
-      $config['mailpath']            = "/usr/bin/sendmail"; // or "/usr/sbin/sendmail"
-      $config['protocol']            = "smtp";
-      $config['smtp_host']           = "ssl://smtp.googlemail.com";
-      $config['smtp_port']           = "465";
-      $config['smtp_user'] = 'vsv1414@gmail.com';
-      $config['smtp_pass'] = '';
-      $config['mailtype'] = 'html';
-      $config['charset']  = 'utf-8';
-      $config['newline']  = "\r\n";
-      $config['wordwrap'] = TRUE;
-      $this->load->library('email');
-      $this->email->initialize($config);
-      $this->email->from('srini.newbiesoftsolutions@gmail.com');
-      $this->email->to($email);
-      $this->email->subject($subject);
-      $this->email->message($message);
-      if($this->email->send())
-      {
-         echo 'Email send.';
-       
-      }
-     else
-     {
-       show_error($this->email->print_debugger());
-       
-     }
-
+  public function encript()
+  {
+    $this->encryption->create_key(16);
   }
+
+
+
+   
 
 }
 

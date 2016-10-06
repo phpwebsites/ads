@@ -44,6 +44,23 @@
            $query = $this->db->get('users'); //get all data from user_profiles table that belong to the respective user
            return $query->row(); //return the data 
 	   }
+
+	   public function getdatabyemail($email)
+	   {
+	   	 $this->db->where('email',$email);
+	   	 $query = $this->db->get('users');
+	   	 return $query->row();
+	   }
+
+	   public function updatepassword($hash,$pwd)
+	   {
+		   $this->db->where('hash', '"'. $hash .'"');
+		   $data = array(
+                           'password' => md5($pwd)
+                        );
+		   $result = $this->db->update('users',$data);
+		   return $result; 
+	   }
     
   }
 ?>

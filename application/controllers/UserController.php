@@ -9,6 +9,12 @@
 		 $this->load->model('usermodel');
 		 $this->load->library('session');
 		 $this->load->model('countrymodel');
+		 $this->load->library('bcrypt');
+		 $this->load->model('categoriesmodel');
+		 $this->load->model('subcategoriesmodel');
+		 $this->load->model('adsmodel');
+		 $this->load->model('adsimagesmodel');
+		 $this->load->helper('timeinfo');
          
       }
 	  
@@ -25,8 +31,9 @@
 			'city_id' => $this->input->post('city'),
 			'pincode' => $this->input->post('pincode'),
 			'role' => $this->input->post('role'),
-
+			'hash' => $this->bcrypt->hash_password(random_string('alpha',4)) 
          ); 
+        
 		 $this->form_validation->set_rules("username", "Username", "trim|required");
 		 $this->form_validation->set_rules("email", "Email", "trim|required|valid_email|xss_clean|is_unique[users.email]");
          $this->form_validation->set_rules("password", "Password", "trim|required|matches[conformpassword]");
@@ -156,17 +163,164 @@
 			
 	  }
 
-	  public function getCountry()
-	{
-		$result = $this->countrymodel->getAll();
-		return $result;
-	}
+	//   public function getCountry()
+	// {
+	// 	$result = $this->countrymodel->getAll();
+	// 	return $result;
+	// }
 	  
 	  public function logout()
 	  {
 		  $this->session->sess_destroy();
 		  redirect("home/index");
 	  }
-	     
-   }
+
+	  public function forgotpwd()
+	  {
+         $email = $this->input->post('email');
+         $email_data = $this->usermodel->getdatabyemail($email);
+         print_r($email_data);
+         if(count($email_data) > 0)
+         {
+             $subject = "Forgotpassword";
+	   	     $message = "<html>
+                       <body>
+                        <div style='width: 640px;height: 145px;background-color: #d0cfcf;padding: 20px;font-size: 20px;text-align: center;'>
+                           <img src='https://i.imgsafe.org/bb8d8a3854.png' width='100' height='70' />
+                           <p>
+                             Please click below link and reset your password
+                             <a href='http://localhost/sites/newbieaddsdev/user/$email_data->hash'>
+                                $email_data->hash
+                             </a>
+                           </p>
+                        </div>
+                       </body>
+                      </html>
+                      ";
+            // echo $message;exit;
+
+            $this->_sendEmail("vsv1414@gmail.com",$subject,$message);
+         }
+         else
+         {
+         	$this->session->set_flashdata('forgotemailerror',"Please enter corect email");
+         }
+         
+     	     
+      }
+
+      public function resetpwd()
+      {
+      	// $data['hash'] = $this->uri->segment(2);
+      	$this->session->set_flashdata('hash',$this->uri->segment(2));
+      	$this->session->set_flashdata('resetpasswordmsg',"reset password open");
+      	// $this->load->view('home',$data);
+      	redirect("home");
+ 	  }
+
+ 	  public function passwordcreate()
+ 	  {
+ 	  	$newpwd = $this->input->post('newpassword');
+ 	  	$oldpwd = $this->input->post('conformpassword');
+ 	  	$hash = $this->input->post('hash');
+ 	  	$this->form_validation->set_rules("newpassword", "Password", "trim|required|matches[conformpassword]");
+		$this->form_validation->set_rules("conformpassword", "ConformPassword", "trim|required");
+		if($this->form_validation->run() == FALSE)
+        {
+           $this->session->set_flashdata('passwordcreateerror',"password create error");    
+              
+        }
+        else
+        {
+           $hash_val = $this->usermodel->updatepassword($hash,$newpwd);
+           if($hash_val == 1)
+           {
+           	  $this->session->set_flashdata('passwordcreatsucess',"password create sucess");
+              redirect('home');
+           }
+           else
+           {
+              redirect('home'); 
+           }
+          
+        }
+ 	  }
+  //     public function getcategories()
+	 //  {
+		// $data = $this->categoriesmodel->getAllcategories();
+		// return $data;
+  //     }
+  //    public function subcategories($id)
+  //    {
+  //   	$subcategoriesdata = $this->subcategoriesmodel->getAllSubcategories($id);
+  //   	return $subcategoriesdata;
+  //    }
+  //    public function adCount($id)
+  //    {
+  //       return $this->adsmodel->getadscount($id);
+
+  //    }
+  //    public function getAllads()
+	 // {
+		// return $this->adsmodel->getAllRow();
+	 // }
+	 // public function getAlladsImages($id)
+	 // {
+		// return $this->adsimagesmodel->getimage($id);
+	 // }
+	 // public function latestads()
+  //    {
+  //   	return $this->adsmodel->getlatestads();
+  //    }
+  //    public function getimage($id)
+	 // {
+		// return $this->adsimagesmodel->getsingleimage($id);
+	 // }
+	 // public function userData($id)
+	 // {
+	 //   return $user_data = $this->usermodel->get_userdata($id);
+	 // }
+	 // public function mostpopularads()
+	 // {
+	 //  return $this->adsmodel->getpopularads(); 
+	 // }
+      public function userProfile()
+	  {
+		$id = $this->session->userdata('user_id');
+		$data['user_data'] = $this->usermodel->get_userdata($id);
+		$this->load->view('userprofile',$data);
+	  }
+      private function _sendEmail($email,$subject,$message)
+      {
+	      $config = array();
+	      $config['useragent'] = "CodeIgniter";
+	      $config['mailpath']  = "/usr/bin/sendmail"; // or "/usr/sbin/sendmail"
+	      $config['protocol']  = "smtp";
+	      $config['smtp_host'] = "ssl://smtp.googlemail.com";
+	      $config['smtp_port'] = "465";
+	      $config['smtp_user'] = 'promtads1414@gmail.com';
+	      $config['smtp_pass'] = 'promtads';
+	      $config['mailtype'] = 'html';
+	      $config['charset']  = 'utf-8';
+	      $config['newline']  = "\r\n";
+	      $config['wordwrap'] = TRUE;
+	      $this->load->library('email');
+	      $this->email->initialize($config);
+	      $this->email->from('vsv1414@gmail.com');
+	      $this->email->to($email);
+	      $this->email->subject($subject);
+	      $this->email->message($message);
+	      if($this->email->send())
+	      {
+	         echo 'Email send.';
+	       
+	      }
+	     else
+	     {
+	       show_error($this->email->print_debugger());
+	       
+	     }
+
+      }
+  }
 ?>

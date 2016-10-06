@@ -75,7 +75,7 @@
                                           <?php echo $row->transaction_id; ?>
                                         </td>
                                         <td>
-                                          <?php echo $row->plans;  ?>
+                                          <?php echo $row->plans;  ?> Months
                                         </td>
                                         <td>
                                           <?php 

@@ -1,5 +1,5 @@
 <?php $this->load->view('includes/header') ?>
-   <section id="slider">
+<section id="slider">
    				<!-- Carousel -->
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="10000">
 			<!-- Indicators -->
