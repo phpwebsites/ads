@@ -13,7 +13,8 @@
             $this->load->library("pagination");
             $this->load->helper('text');
             $this->load->library('email');
-            $this->load->library('encryption');
+            // $this->load->library('encryption');
+            // $this->load->library('bcrypt');
 
    }
 
@@ -117,10 +118,7 @@
  		return $this->commentmodel->commentcount($blogid);
  	}
 
-  public function encript()
-  {
-    $this->encryption->create_key(16);
-  }
+  
 
 
 

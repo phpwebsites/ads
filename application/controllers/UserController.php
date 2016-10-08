@@ -54,7 +54,7 @@
 			$id = $this->db->insert_id();
 			$userdata = $this->usermodel->get_userdata($id);
 			//print_r($userdata);exit;
-		    $sessiondata = array('user_id' => $userdata->id ,'email' => $userdata->email,'username' => $userdata->name );
+		    $sessiondata = array('user_id' => $userdata->id ,'email' => $userdata->email,'username' => $userdata->name,'role' => $userdata->role);
 			$this->session->set_userdata($sessiondata);
 			$this->session->set_flashdata('signupmsg',"Your Registration is Sucessfull");
 			redirect('home');
@@ -98,13 +98,14 @@
 						 $usr_id = $this->usermodel->get_userid($email, $password);
 						 if($usr_id->role == 3)
 						 {
-						 	$sessiondata = array('user_id' => $usr_id->id ,'email' => $usr_id->email,'username' => $usr_id->name );
+						 	$sessiondata = array('user_id' => $usr_id->id ,'email' => $usr_id->email,'username' => $usr_id->name,'role' => $usr_id->role);
+
                             $this->session->set_userdata($sessiondata);
 						    redirect("home");	
 						 }
 						 elseif ($usr_id->role == 1 || $usr_id->role == 2 ) 
 						 {
-						 	$sessiondata = array('user_id' => $usr_id->id ,'email' => $usr_id->email,'username' => $usr_id->name );
+						 	$sessiondata = array('user_id' => $usr_id->id ,'email' => $usr_id->email,'username' => $usr_id->name,'role' => $usr_id->role);
                             $this->session->set_userdata($sessiondata);
 						    redirect("administrator");		 	 						 	
 						 } 	 						 

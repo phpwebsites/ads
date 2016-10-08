@@ -1,5 +1,5 @@
 <?php $this->load->view('includes/header'); ?>
-<section>
+<section style="min-height: 485px;">
    <div class="container">
     <?php $count = 0; ?>
     <?php foreach($blogresult as $blog_result ){ ?>

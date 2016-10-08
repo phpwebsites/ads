@@ -46,8 +46,5 @@ can provide a solution to your unique business needs..</p>
 	</div>
   </div>
 </section>
-<?php 
-  $CI =& get_instance();
-  echo $CI->encript();
-?>
+
 <?php $this->load->view('includes/footer') ?>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Newbiesoft Adds</title>
+	<title>PromoteAds| Home</title>
 	<!--<link rel="stylesheet" type="text/css" href="<?php /*echo asset_url();*/ ?>css/bootstrap.min.css">-->
   <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/custom.css">
@@ -54,7 +54,11 @@
                         	 <ul class="list-unstyled user_data">
                             <li><a href="<?php echo base_url("user/logout"); ?>"  class="btn btn-theme">Log Out</a></li>
                                <li class="dropdown">
+                                <?php if($this->session->userdata('role') == 2 || $this->session->userdata('role') == 1 ){ ?>
                                  <a href="<?php echo base_url('administrator'); ?>" class="btn btn-theme" id=""><?php echo $this->session->userdata('username'); ?></a> 
+                                <?php }else{?>
+                                  <a href="<?php echo base_url('userProfile'); ?>" class="btn btn-theme" id=""><?php echo $this->session->userdata('username'); ?></a> 
+                                <?php } ?>
                                </li>
                              </ul>
                         <?php } else{ ?>        

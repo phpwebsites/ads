@@ -323,10 +323,11 @@ ul.tsc_paginationA01 li.current a { background:#FFFFFF; }
 }
 .btn-primary {
     color: #fff;
-     background-color: #8a8383;
+    background-color: #8a8383;
     border-color: #8a8383;
 }
 #priceingtable{display: none;}
+.userprofile{padding-top: 35px;padding-bottom: 15px;}
 
 
 

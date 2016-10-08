@@ -1,5 +1,5 @@
 <?php $this->load->view('includes/header.php'); ?>
-   <section>
+   <section class="userprofile">
        <div class="container">
        		<div class="row">
             		<div class="col-xs-2">

@@ -13,7 +13,6 @@ class Home extends CI_Controller {
 		 $this->load->model('adsmodel');
 		 $this->load->helper('timeinfo');
 		 $this->load->model('adsimagesmodel');
-         
     }
 
 	public function index()

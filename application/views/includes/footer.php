@@ -3,7 +3,7 @@
     <div class="container">
           <div class="row text-center ">
               
-                 <h3 class="text-center bgpadding">Connect socially with newbieadds</h3>
+                 <h3 class="text-center bgpadding">Connect socially with promoteads</h3>
                  <hr class="star-primary"></hr>
               <div class="col-xs-3">
                 <a href="" class="hvr-pulse"><img src="<?php echo asset_url(); ?>images/twitter.png" class="border"></a>
