@@ -16,9 +16,10 @@
 
     public function getads($subcat_id)
     {
-	  $this->db->where('subcategory_id',$subcat_id);
-	  $query = $this->db->get('ads');
-	  return $query->result();		
+  	  $this->db->where('subcategory_id',$subcat_id);
+      $this->db->order_by('id','desc');
+  	  $query = $this->db->get('ads');
+  	  return $query->result();		
     }
 
     public function getdescads($adid)
@@ -50,7 +51,7 @@
     {
         $this->db->order_by('id','desc');
         $this->db->where('status',1); 
-        $this->db->limit(3);
+        // $this->db->limit(3);
         $query = $this->db->get('ads');
         return $query->result();    
     }
@@ -108,6 +109,7 @@
 
       $this->db->where('adplanprice', NULL);
       $query = $this->db->get('ads');
+      print_r($query->result());
       return $query->result();  
     }
   }

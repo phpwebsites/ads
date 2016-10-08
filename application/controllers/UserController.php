@@ -31,7 +31,7 @@
 			'city_id' => $this->input->post('city'),
 			'pincode' => $this->input->post('pincode'),
 			'role' => $this->input->post('role'),
-			'hash' => $this->bcrypt->hash_password(random_string('alpha',4)) 
+			'hash' => stripcslashes($this->bcrypt->hash_password(random_string('alpha',4))) 
          ); 
         
 		 $this->form_validation->set_rules("username", "Username", "trim|required");
@@ -179,7 +179,7 @@
 	  {
          $email = $this->input->post('email');
          $email_data = $this->usermodel->getdatabyemail($email);
-         print_r($email_data);
+         
          if(count($email_data) > 0)
          {
              $subject = "Forgotpassword";
@@ -199,7 +199,7 @@
                       ";
             // echo $message;exit;
 
-            $this->_sendEmail("vsv1414@gmail.com",$subject,$message);
+            $this->_sendEmail("srini.newbiesoftsolutions@gmail.com",$subject,$message);
          }
          else
          {
@@ -212,6 +212,8 @@
       public function resetpwd()
       {
       	// $data['hash'] = $this->uri->segment(2);
+      	//echo $this->uri->segment(2);
+      	//exit;
       	$this->session->set_flashdata('hash',$this->uri->segment(2));
       	$this->session->set_flashdata('resetpasswordmsg',"reset password open");
       	// $this->load->view('home',$data);
@@ -223,19 +225,24 @@
  	  	$newpwd = $this->input->post('newpassword');
  	  	$oldpwd = $this->input->post('conformpassword');
  	  	$hash = $this->input->post('hash');
- 	  	$this->form_validation->set_rules("newpassword", "Password", "trim|required|matches[conformpassword]");
+ 	  	$this->form_validation->set_rules("newpassword", "Password", "trim|required");
+ 	  	$this->form_validation->set_rules("conformpassword", "ConformPassword", "trim|required");
+ 	  	$this->form_validation->set_rules("newpassword", "Newpassword", "trim|required|matches[conformpassword]");
 		$this->form_validation->set_rules("conformpassword", "ConformPassword", "trim|required");
 		if($this->form_validation->run() == FALSE)
         {
-           $this->session->set_flashdata('passwordcreateerror',"password create error");    
+           $this->session->set_flashdata('passwordcreateerror',"password create error");  
+           $this->session->set_flashdata('error',validation_errors());  
+           redirect('home'); 
               
         }
         else
         {
            $hash_val = $this->usermodel->updatepassword($hash,$newpwd);
+           print_r($hash_val);exit;
            if($hash_val == 1)
            {
-           	  $this->session->set_flashdata('passwordcreatsucess',"password create sucess");
+           	  $this->session->set_flashdata('passwordcreatsucess','<span class="text-danger">Password updated sucessfully!</span>');
               redirect('home');
            }
            else

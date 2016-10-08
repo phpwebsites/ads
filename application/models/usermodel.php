@@ -54,11 +54,12 @@
 
 	   public function updatepassword($hash,$pwd)
 	   {
-		   $this->db->where('hash', '"'. $hash .'"');
+		   $this->db->where("hash", "'".$hash."'");
+		   $result = $this->db->get('users');
 		   $data = array(
                            'password' => md5($pwd)
                         );
-		   $result = $this->db->update('users',$data);
+		   // $result = $this->db->update('users',$data);
 		   return $result; 
 	   }
     

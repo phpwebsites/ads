@@ -104,6 +104,8 @@ $route['subcategory/:any'] = "admin/SubCategoryController/delete";
 /*#################### Front Category Start ################### */
 $route['category/viewall'] = "FrontCategoryController/viewall";
 $route['getsubcate/:any'] = "FrontCategoryController/getallsubcategory";
+$route['getsubads/:any'] = "FrontCategoryController/getsubads";
+
 
 /*#################### Category End ################### */
 

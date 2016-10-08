@@ -63,12 +63,17 @@
          {
              $planprice = $this->input->post('plan2price'); 
          }
-         else
+         elseif($this->input->post('plan3price') != "")
          {
              $planprice = $this->input->post('plan3price'); 
          }
+         else
+         {
+             $planprice = NULL;
 
-         $postadval = array('title' => $this->input->post('title'),'description' => $this->input->post('desc'),'category_id' => $this->input->post('category'),'subcategory_id' => $this->input->post('subcategory'),'price' => $this->input->post('price'),'payment_status' => $this->input->post('payment_status'),'user_id' => $this->input->post('user_id'), 'adplanprice' => $planprice);
+         }
+
+         $postadval = array('title' => $this->input->post('title'),'description' => $this->input->post('desc'),'category_id' => $this->input->post('category'),'subcategory_id' => $this->input->post('subcategory'),'price' => $this->input->post('price'),'payment_status' => $this->input->post('payment_status'),'user_id' => $this->input->post('user_id'), 'adplanprice' => $planprice, 'status' => 1);
           $this->form_validation->set_rules('title', 'Title', 'required');
           $this->form_validation->set_rules('desc', 'description', 'required');
           $this->form_validation->set_rules('category', 'Category', 'required');
@@ -124,7 +129,7 @@
                         //$this->load->view('formsuccess');
                         if($this->input->post('pricing') == "free")
                         {
-                          redirect("category/getsubcate/".$this->input->post('category'));
+                          redirect("getsubads/".$this->input->post('subcategory'));
                         }
                         if($this->input->post('pricing') == "priceing")
                         {
@@ -287,6 +292,13 @@
         $id = $this->uri->segment(2);
         $data['ads'] = $this->adsmodel->getads($id);
         $this->load->view('showads' , $data);
+     }
+
+     public function getsubads()
+     {
+        $id = $this->uri->segment(2);
+        $data['ads'] = $this->adsmodel->getads($id);
+        $this->load->view('subads' , $data);
      }
 
      public function adCount($id)

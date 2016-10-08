@@ -70,28 +70,6 @@
 	</div>
 <?php } ?>
 <div id="loadmore"></div>
-<div class="row">
- 	<!-- <button onclick="loadmore()" value="loadmore" />
- 	</br>
-   <input type="text" name="limit" id="limit" value="10"/>
-   <input type="text" name="offset" id="offset" value="1"/>  
-   <div id="load-more">
-   	
-   </div> -->
-<?php if(count($ads) > 0){ ?>
-   <div id="remove_row">
-   	   <button type="button" name="btn-more" id="btn-more" data-vid="<?php echo $adid; ?>" class="btn btn-success form-control">Load more</button>
-   </div>
-<?php } ?>
-   
-</div>
-
-						        
-					
-						
-                      
-					  
-
 		  	</div>
 		  </div>
 			
@@ -100,36 +78,6 @@
 
 
 <script type="text/javascript">
-	
-	$(document).ready(function(){
-		$(document).on('click','#btn-more',function(){
-
-			var last_ad_id = $(this).data("vid");
-			
-	 $.ajax({
-    	
-        url:'<?php echo site_url('SearchController/loadmore'); ?>',
-        type: 'POST',
-        data:{
-          offset :$(this).data("vid")
-        },
-        dataType:'text',
-        success :function(data){
-        	
-        	if(data != "")
-        	{
-        		$("#remove_row").remove();
-        		$("#loadmore").append(data);
-        		
-        	}
-           // $('#offset').val(data.offset)
-           // $('#limit').val(data.limit)
-        }
-    })
-
-		})
-	})
-			
 	
 </script>
 <?php include "includes/footer.php";  ?>

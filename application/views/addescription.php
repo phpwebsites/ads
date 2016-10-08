@@ -1,5 +1,5 @@
 <?php $this->load->view('includes/header') ?>
- <section>
+ <section class="desc">
  	<div class="container">
  	   <?php 
  	      $adci =& get_instance(); 

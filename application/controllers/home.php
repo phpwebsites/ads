@@ -75,7 +75,7 @@ class Home extends CI_Controller {
 
 	public function getAllads()
 	{
-		return $this->adsmodel->getAllRow();
+		return $this->adsmodel->getpopularads();
 	}
 
 	public function getAlladsImages($id)
@@ -85,7 +85,7 @@ class Home extends CI_Controller {
 
 	public function mostpopularads()
 	{
-	  return $this->adsmodel->getpopularads(); 
+	   return $this->adsmodel->getpopularads(); 
 	}
  }
 ?>

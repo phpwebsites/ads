@@ -305,20 +305,26 @@
               $attributes =array("class" => "form-horizontal", "id" => "login", "role" => "form" );
               echo form_open('UserController/passwordcreate',$attributes);
            ?>
+                        
                         <div class="form-group">
-                          <div class="col-xs-12 text-center">
-                                <?php echo $this->session->flashdata('loginerror_msg'); ?>
-                            </div>
+                          <div class="col-xs-12 text-center text-danger">
+                            <?php echo $this->session->flashdata('passwordcreatsucess'); ?>
+                            <?php
+                              echo $this->session->flashdata('error');
+                            ?>
+                          </div>
                         </div>
                         <div class="form-group">
                           <label class="control-label col-sm-4" for="email">New Password:</label>
                           <div class="col-sm-8">
                             <input type="password" class="form-control" name="newpassword" id="newpassword" placeholder="New Password">
-                            <span class="text-danger"><?php echo form_error('newpassword'); ?></span>
+                            <span class="text-danger">
+                              <?php echo form_error('newpassword'); ?>
+                            </span>
                           </div>
                         </div>
                         <div class="form-group">
-                          <label class="control-label col-sm-4" for="email">Old Password:</label>
+                          <label class="control-label col-sm-4" for="email">Conform Password:</label>
                           <div class="col-sm-8">
                             <input type="password" class="form-control" name="conformpassword" id="conformpassword" placeholder="Old Password">
                             
@@ -425,6 +431,21 @@
         if($this->session->flashdata('resetpasswordmsg') != ""){
      ?>
            $("#resetpasswordform").modal("show"); 
+     <?php
+      }
+     ?>
+
+     <?php
+       if($this->session->flashdata("passwordcreatsucess") != ""){
+     ?>
+          $("#resetpasswordform").modal("show");  
+     <?php
+       }
+     ?>
+     <?php
+       if($this->session->flashdata("passwordcreateerror") != ""){
+     ?>
+        $("#resetpasswordform").modal("show"); 
      <?php
       }
      ?>

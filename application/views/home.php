@@ -103,7 +103,7 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                     
                     <?php $subcategory = $CI -> subcategories($category_data->id); ?>
                     <?php foreach ($subcategory as $subcategory_data ) { ?>
-                        <li> <a href=""><?php echo $subcategory_data->name; ?></a> <?php 
+                        <li> <a href="<?php echo base_url('getsubads/'.$subcategory_data->id); ?>"><?php echo $subcategory_data->name; ?></a> <?php 
                          $countci =& get_instance(); 
                          $count = $countci->adCount($subcategory_data->id);
                        ?>
@@ -138,21 +138,25 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
  $CI_allads =& get_instance();  
  $allads = $CI_allads->getAllads();
  $CI_alladsimage =& get_instance();  
- 
 ?>
 <section id="thumbnail-slider">
      <div class="container">
+        <h3>Premium Ads</h3>
              <section class="regular slider">
-          <?php foreach($allads as $allads_data){ ?>
-            <a href="<?php echo site_url('description/'.$allads_data->id); ?>" style="text-decoration:none;">
-              <div>
-                <?php $alladsimage = $CI_alladsimage->getAlladsImages($allads_data->id); ?>
-                <img src="<?php echo site_url(); ?>uploads/<?php echo $alladsimage->name;  ?>" style="width: 80%;">
-                <span style="color:#4e4e4e;"><b>Price:</b><?php echo round ($allads_data->price); ?></span>
+          <?php if(count($allads) > 0){ ?>
+              <?php foreach($allads as $allads_data){ ?>
+                <a href="<?php echo site_url('description/'.$allads_data->id); ?>" style="text-decoration:none;">
+                  <div>
+                    <?php $alladsimage = $CI_alladsimage->getAlladsImages($allads_data->id); ?>
+                    <img src="<?php echo site_url(); ?>uploads/<?php echo $alladsimage->name;  ?>" style="width: 80%;">
+                    <span style="color:#4e4e4e;"><b>Price:</b><?php echo round ($allads_data->price); ?></span>
 
-              </div>
-            </a>
-          <?php } ?>   
+                  </div>
+                </a>
+              <?php } ?> 
+         <?php } else{ ?>  
+           <h5 class="text-center">No More Premium Ads.....</h5>
+         <?php } ?>
             </section>
       </div>
 

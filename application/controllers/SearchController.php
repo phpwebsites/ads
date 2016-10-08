@@ -3,7 +3,7 @@
    {
 	  function __construct() 
 	  { 
-	  	 parent::__construct(); 
+	  	   parent::__construct(); 
          $this->load->helper('url');
          $this->load->library('form_validation');
          $this->load->model('categoriesmodel');
