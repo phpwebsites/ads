@@ -54,10 +54,27 @@
 			$id = $this->db->insert_id();
 			$userdata = $this->usermodel->get_userdata($id);
 			//print_r($userdata);exit;
-		    $sessiondata = array('user_id' => $userdata->id ,'email' => $userdata->email,'username' => $userdata->name,'role' => $userdata->role);
-			$this->session->set_userdata($sessiondata);
-			$this->session->set_flashdata('signupmsg',"Your Registration is Sucessfull");
-			redirect('home');
+		 //    $sessiondata = array('user_id' => $userdata->id ,'email' => $userdata->email,'username' => $userdata->name,'role' => $userdata->role);
+			// $this->session->set_userdata($sessiondata);
+			$subject = "Promoteads Registration";
+	   	    $message = "<html>
+                       <body>
+                        <div style='width: 640px;height: 145px;background-color: #d0cfcf;padding: 20px;font-size: 20px;text-align: center;'>
+                           <img src='https://i.imgsafe.org/bb8d8a3854.png' width='100' height='70' />
+                           <p>
+                             Please click below link and activate your account
+                             <a href='".base_url('userupdate/'.$userdata->hash .'/'. $userdata->id)."'>
+                                $userdata->hash
+                             </a>
+                           </p>
+                        </div>
+                       </body>
+                      </html>
+                      ";
+            //echo $message;exit;
+            $this->_sendEmail("srini.newbiesoftsolutions@gmail.com",$subject,$message);
+            $this->session->set_flashdata('emailsentsucess','Your Registration is Sucessfull. Please activate your account by email');
+			redirect('home');	
 		 }
 
 		  
@@ -190,7 +207,7 @@
                            <img src='https://i.imgsafe.org/bb8d8a3854.png' width='100' height='70' />
                            <p>
                              Please click below link and reset your password
-                             <a href='http://localhost/sites/newbieaddsdev/user/$email_data->hash'>
+                             <a href='".base_url('user/'.$email_data->hash)."'>
                                 $email_data->hash
                              </a>
                            </p>
@@ -198,13 +215,16 @@
                        </body>
                       </html>
                       ";
-            // echo $message;exit;
+            //echo $message;exit;
 
             $this->_sendEmail("srini.newbiesoftsolutions@gmail.com",$subject,$message);
+            $this->session->set_flashdata('emailsentsucess','Mail sent sucessfully!');
+	        redirect('home');
          }
          else
          {
          	$this->session->set_flashdata('forgotemailerror',"Please enter corect email");
+         	redirect('home');
          }
          
      	     
@@ -298,6 +318,23 @@
 		$data['user_data'] = $this->usermodel->get_userdata($id);
 		$this->load->view('userprofile',$data);
 	  }
+
+	  public function useractivate()
+	  {
+	  	$hash = $this->uri->segment(2);
+	  	$userid = $this->uri->segment(3);
+	  	$userdata = $this->usermodel->get_userdata($userid);
+	  	//print_r($userdata);
+	  	//exit;
+	  	$data = $this->usermodel->updatehashuserdata($hash);
+	  	if($data)
+	  	{
+	  		$sessiondata = array('user_id' => $userdata->id ,'email' => $userdata->email,'username' => $userdata->name,'role' => $userdata->role);
+			$this->session->set_userdata($sessiondata);
+	  		$this->session->set_flashdata('emailsentsucess','User is activated sucessfully!');
+	  		redirect('home');
+	  	}
+	  }
       private function _sendEmail($email,$subject,$message)
       {
 	      $config = array();
@@ -320,8 +357,8 @@
 	      $this->email->message($message);
 	      if($this->email->send())
 	      {
-	         echo 'Email send.';
-	       
+	          
+
 	      }
 	     else
 	     {

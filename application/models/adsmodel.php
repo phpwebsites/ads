@@ -109,7 +109,7 @@
 
       $this->db->where('adplanprice', NULL);
       $query = $this->db->get('ads');
-      print_r($query->result());
+      // print_r($query->result());
       return $query->result();  
     }
   }

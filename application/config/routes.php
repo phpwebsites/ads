@@ -45,6 +45,7 @@ $route['UserController/login_user'] = "UserController/login_user";
 $route['UserController/forgotpwd'] = "UserController/forgotpwd";
 $route['user/logout'] = "UserController/logout";
 $route['user/:any'] = "UserController/resetpwd";
+$route['userupdate/:any'] = "UserController/useractivate";
 $route['userProfile'] = "Home/userProfile";
 $route['home/viewall'] = "Home/viewall";
 $route['administrator'] = "admin/AdminController/index";

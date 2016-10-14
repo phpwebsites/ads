@@ -62,6 +62,26 @@
 		   // $result = $this->db->update('users',$data);
 		   return $result; 
 	   }
+
+	   public function updatehashuserdata($hash)
+	   {
+	   	   $this->db->where("hash", "'".$hash."'");
+		   $result = $this->db->get('users');
+		   $data = array('status' => 1);
+           $result = $this->db->update('users',$data);
+		   return $result; 
+	   }
+
+	  //  public function gethashdata($hash)
+	  //  {
+
+	  //  	 $this->db->where("hash", str_replace(' ', '', $hash));
+		 // $result = $this->db->get('users');
+		 // $data = $result->row();
+		 // print_r($data);
+		 // exit;
+		 // return $result;
+	  //  }
     
   }
 ?>

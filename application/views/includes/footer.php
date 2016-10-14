@@ -351,6 +351,24 @@
         </div>
         </div>
 <!-- ####### reset password end ############ -->
+<!-- ####### registration sucess msg model ############ -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="registrationformsucess">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+      </div> <!-- modal header end -->
+    <div class="row">
+           <div class="col-xs-12">
+             <h4 class="text-center" style="color: #295b24;"><?php echo $this->session->flashdata('emailsentsucess'); ?></h4>       
+              
+           </div>
+    </div>
+    </div>
+        </div>
+        </div>
+<!-- ####### registration sucess msg model end ############ -->
 
 <!--###############Bootstrap Models end##############-->
 
@@ -446,6 +464,13 @@
        if($this->session->flashdata("passwordcreateerror") != ""){
      ?>
         $("#resetpasswordform").modal("show"); 
+     <?php
+      }
+     ?>
+     <?php
+       if($this->session->flashdata("emailsentsucess") != ""){
+     ?>
+        $("#registrationformsucess").modal("show"); 
      <?php
       }
      ?>

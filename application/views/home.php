@@ -189,8 +189,9 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                   <li class="active">
                     <a  href="#1" data-toggle="tab">Latest Ads</a>
                   </li>
-                  <li><a href="#2" data-toggle="tab">Most Popular Ads</a>
+                  <li><a href="#2" data-toggle="tab">Free Ads</a>
                   </li>
+
                   
             </ul>
 
@@ -201,6 +202,7 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                    $latestads = $CI_latestads->latestads();
                    $CI_userdata =& get_instance();  
                ?>
+                <?php if(count($latestads) > 0){ ?>
                 <?php foreach($latestads as $latestads_data){ ?>
                 <div class="row" style="padding-left: 70px;">
                 
@@ -230,6 +232,9 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                 </div>
                 
               <?php } ?>
+              <?php } else{ ?>
+                <h3 class="text-center"> No more latestads</h3>
+              <?php } ?>
               </div>
                 <div class="tab-pane" id="2">
                 <div class="row" style="padding-left: 70px;">
@@ -239,6 +244,7 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                           $admdata = $CI_mostpopularads->mostpopularads();
 
                        ?>
+                  <?php if(count($admdata) > 0){ ?>
                        <?php
                          foreach($admdata as $ad_mdata){
                        ?>
@@ -267,6 +273,9 @@ et dolore magna aliqua. Ut enim ad minim veniam</p>
                  <?php
                    }
                  ?>
+                <?php } else{ ?>
+                  <h3 class="text-center">No More Free Ads</h3>
+                <?php } ?>
                 
             </div>
    </div>

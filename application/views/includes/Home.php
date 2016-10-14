@@ -1,5 +1,5 @@
 <?php
-class Home extends CI_Controller {
+class home extends CI_Controller {
 	
 	function __construct() { 
          parent::__construct(); 
@@ -13,6 +13,7 @@ class Home extends CI_Controller {
 		 $this->load->model('adsmodel');
 		 $this->load->helper('timeinfo');
 		 $this->load->model('adsimagesmodel');
+         
     }
 
 	public function index()
@@ -84,7 +85,7 @@ class Home extends CI_Controller {
 
 	public function mostpopularads()
 	{
-	   return $this->adsmodel->getfreeads(); 
+	   return $this->adsmodel->getpopularads(); 
 	}
  }
 ?>
