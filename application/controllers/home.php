@@ -86,5 +86,7 @@ class Home extends CI_Controller {
 	{
 	   return $this->adsmodel->getfreeads(); 
 	}
+
+	
  }
 ?>

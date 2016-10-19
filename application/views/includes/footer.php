@@ -58,19 +58,19 @@
                     </ul>
               </div>
               <div class="col-xs-3">
-                  <form role="form">
+                  <?php echo form_open('emailsubscribe') ?>
                       <div class="form-group">
                         <label for="email" style="color: #bdbdbd;">Email:</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" class="form-control" name="email" id="email">
                       </div>
                       <button type="submit" class="btn btn-default">Submit</button>
-                  </form>
+                  <?php echo form_close(); ?> 
               </div>
               <div class="col-xs-3">
                   <ul class="list-unstyled footerul">
-                     <li>MIG-285,<li>
-                     <li>D.No : 39-33-99/3</li>
-                     <li>Near East Park,Madhavadhara Vuda Layout,Visakhapatnam-18 </li>
+                     <li>Eswar Plaza,<li>
+                     <li>D.No : 39-20-59/2/3</li>
+                     <li>SBI,Kalinganagarm,Madhavadhara Vuda Layout,Visakhapatnam-18 </li>
                      <li><a href="<?php echo base_url('contactus'); ?>">See More...</a></li>
 
                   </ul>
@@ -94,44 +94,39 @@
               $formattributes = array('class' => 'form-horizontal', 'id' => 'signup');
               echo form_open('UserController/add_user',$formattributes); 
            ?>
-                        <div class="form-group">
-                          <div class="col-xs-12 text-center text-success">
-                              <h4><?php echo $this->session->flashdata('signupmsg'); ?></h4>
-                          </div>
-                        </div>
                          <div class="form-group">
                            <label class="control-label col-sm-4" for="email">User Name:</label>
                           <div class="col-sm-8">
                             <input type="text" class="form-control" name="username" id="username" >
-                            <span class="text-danger"><?php echo form_error('username'); ?></span>
+                            <span class="text-danger"><?php echo $this->session->flashdata('usernameerror'); ?></span>
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="control-label col-sm-4" for="email">Email:</label>
                           <div class="col-sm-8">
                             <input type="email" class="form-control" name="email" id="email" >
-                            <span class="text-danger"><?php echo form_error('email'); ?></span>
+                            <span class="text-danger"><?php echo $this->session->flashdata('emailerror'); ?></span>
                           </div>
                         </div>
                        <div class="form-group">
                           <label class="control-label col-sm-4" for="pwd">Password:</label>
                           <div class="col-sm-8">          
                             <input type="password" class="form-control" name="password" id="password" >
-                            <span class="text-danger"><?php echo form_error('password'); ?></span>
+                            <span class="text-danger"><?php echo $this->session->flashdata('passworderror'); ?></span>
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="control-label col-sm-4" for="pwd">Conform Password:</label>
                           <div class="col-sm-8">          
                             <input type="password" class="form-control" name="conformpassword" id="conformpassword">
-                            <span class="text-danger"><?php echo form_error('conformpassword'); ?></span>
+                            <span class="text-danger"><?php echo $this->session->flashdata('conformpassworderror'); ?></span>
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="control-label col-sm-4" for="pwd">Phone Number:</label>
                           <div class="col-sm-8">          
                             <input type="text" class="form-control" name="phoneno" id="phoneno">
-                            <span class="text-danger"><?php echo form_error('phoneno'); ?></span>
+                            <span class="text-danger"><?php echo $this->session->flashdata('phonenoerror'); ?></span>
                           </div>
                         </div>
                         <div class="form-group">
@@ -147,7 +142,7 @@
                                   <option value="<?php echo $country_data->id;  ?>"> <?php echo $country_data->name;  ?> </option>
                               <?php } ?>
                            </select>
-                            <span class="text-danger"><?php echo form_error('country'); ?></span>
+                            <span class="text-danger"><?php echo $this->session->flashdata('countryerror'); ?></span>
                           </div>
                         </div>
                          <div class="form-group">
@@ -156,7 +151,7 @@
                             <select class="form-control" name="state" id="state_id">
                               <option value="">----Select State----</option>
                             </select>
-                            <span class="text-danger"><?php echo form_error('state'); ?></span>
+                            <span class="text-danger"><?php echo $this->session->flashdata('stateerror'); ?></span>
                           </div>
                         </div>
                          <div class="form-group">
@@ -165,14 +160,14 @@
                             <select class="form-control" name="city" id="city_id" >
                               <option value="">----Select City---- </option>
                             </select>
-                            <span class="text-danger"><?php echo form_error('city'); ?></span>
+                            <span class="text-danger"><?php echo $this->session->flashdata('cityerror'); ?></span>
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="control-label col-sm-4" for="pwd">Pincode:</label>
                           <div class="col-sm-8">          
                             <input type="text" name="pincode" id="pincode" class="form-control">
-                             <span class="text-danger"><?php echo form_error('pincode'); ?></span>
+                             <span class="text-danger"><?php echo $this->session->flashdata('pincodeerror'); ?></span>
                           </div>
                         </div>
                         <div class="form-group">        
@@ -414,18 +409,14 @@
     ?>
     
     <?php
-        //echo validation_errors(); exit;
-       if(validation_errors() != false)
-       { 
-          //echo "test"; exit;
-         if($this->router->fetch_method() == "add_user")
-         {
+        // echo validation_errors(); exit;
+        if($this->session->flashdata('regfailed') != ""){
     ?>
             $("#signup").modal("show"); 
                    
     <?php    
-           }
-       }
+        }
+       
     ?>
      
      <?php
@@ -438,11 +429,11 @@
      ?>
 
      <?php
-        if($this->session->flashdata('signupmsg') != ""){
+        //if($this->session->flashdata('signupmsg') != ""){
      ?>
-           $("#signup").modal("show"); 
+           //$("#signup").modal("show"); 
      <?php
-      }
+      //}
      ?>
 
      <?php

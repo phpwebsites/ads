@@ -14,6 +14,7 @@
 		 $this->load->model('subcategoriesmodel');
 		 $this->load->model('adsmodel');
 		 $this->load->model('adsimagesmodel');
+		 $this->load->model('subscribemodel');
 		 $this->load->helper('timeinfo');
          
       }
@@ -45,8 +46,18 @@
 		 $this->form_validation->set_rules("pincode", "Pincode", "trim|required");
 		 if($this->form_validation->run() == FALSE)
 		 {
-		 	
-			$this->load->view('home');		 
+		 	// $this->session->set_flashdata('regerror',validation_errors()); 
+		 	$this->session->set_flashdata('usernameerror',form_error('username')); 
+		 	$this->session->set_flashdata('emailerror',form_error('email')); 
+		 	$this->session->set_flashdata('passworderror',form_error('password')); 
+		 	$this->session->set_flashdata('conformpassworderror',form_error('conformpassword')); 
+		 	$this->session->set_flashdata('phonenoerror',form_error('phoneno')); 
+		 	$this->session->set_flashdata('countryerror',form_error('country')); 
+		 	$this->session->set_flashdata('stateerror',form_error('state')); 
+		 	$this->session->set_flashdata('cityerror',form_error('city')); 
+		 	$this->session->set_flashdata('pincodeerror',form_error('pincode')); 
+		 	$this->session->set_flashdata('regfailed',"regstration form faield");   
+		 	redirect('home');		 
 		 }
 		 else
 		 {
@@ -72,7 +83,7 @@
                       </html>
                       ";
             //echo $message;exit;
-            $this->_sendEmail("srini.newbiesoftsolutions@gmail.com",$subject,$message);
+            $this->_sendEmail($userdata->email,$subject,$message);
             $this->session->set_flashdata('emailsentsucess','Your Registration is Sucessfull. Please activate your account by email');
 			redirect('home');	
 		 }
@@ -105,14 +116,15 @@
 					
                if ($this->input->post('login') == "Login")
                {
-				   
-                    //check if username and password is correct
-                    $usr_result = $this->usermodel->get_user($email, $password);
-					
+				  //check if username and password is correct
+               	  $usr_result = $this->usermodel->get_user($email, $password);
+                  $usr_id = $this->usermodel->get_userid($email, $password);
                     if ($usr_result > 0) //active user record is present
                     {
+                      if($usr_id->status == 1)
+				      {
                        
-						 $usr_id = $this->usermodel->get_userid($email, $password);
+						 // $usr_id = $this->usermodel->get_userid($email, $password);
 						 if($usr_id->role == 3)
 						 {
 						 	$sessiondata = array('user_id' => $usr_id->id ,'email' => $usr_id->email,'username' => $usr_id->name,'role' => $usr_id->role);
@@ -125,7 +137,13 @@
 						 	$sessiondata = array('user_id' => $usr_id->id ,'email' => $usr_id->email,'username' => $usr_id->name,'role' => $usr_id->role);
                             $this->session->set_userdata($sessiondata);
 						    redirect("administrator");		 	 						 	
-						 } 	 						 
+						 }
+					  }
+                      else
+                      {
+                  	     $this->session->set_flashdata('emailsentsucess','You will activate your account on email');
+	  		             redirect('home');
+                      } 	 						 
                          
                     }
                     else
@@ -134,6 +152,7 @@
                          $this->session->set_flashdata('loginerror_msg', '<span class="text-danger">Invalid username and password!</span>');
                          redirect('home/index');
                     }
+                  
                }
                else
                {
@@ -207,7 +226,7 @@
                            <img src='https://i.imgsafe.org/bb8d8a3854.png' width='100' height='70' />
                            <p>
                              Please click below link and reset your password
-                             <a href='".base_url('user/'.$email_data->hash)."'>
+                             <a href='".base_url('user/'.$email_data->hash).'/'.$email_data->id."'>
                                 $email_data->hash
                              </a>
                            </p>
@@ -217,7 +236,7 @@
                       ";
             //echo $message;exit;
 
-            $this->_sendEmail("srini.newbiesoftsolutions@gmail.com",$subject,$message);
+            $this->_sendEmail($email_data->email,$subject,$message);
             $this->session->set_flashdata('emailsentsucess','Mail sent sucessfully!');
 	        redirect('home');
          }
@@ -232,10 +251,8 @@
 
       public function resetpwd()
       {
-      	// $data['hash'] = $this->uri->segment(2);
-      	//echo $this->uri->segment(2);
-      	//exit;
-      	$this->session->set_flashdata('hash',$this->uri->segment(2));
+      	
+      	$this->session->set_flashdata('hash',$this->uri->segment(3));
       	$this->session->set_flashdata('resetpasswordmsg',"reset password open");
       	// $this->load->view('home',$data);
       	redirect("home");
@@ -260,15 +277,15 @@
         else
         {
            $hash_val = $this->usermodel->updatepassword($hash,$newpwd);
-           print_r($hash_val);exit;
+           // print_r($hash_val);exit;
            if($hash_val == 1)
            {
-           	  $this->session->set_flashdata('passwordcreatsucess','<span class="text-danger">Password updated sucessfully!</span>');
-              redirect('home');
+           	 $this->session->set_flashdata('emailsentsucess','Password updated sucessfully!');
+             redirect('home');
            }
            else
            {
-              redirect('home'); 
+             redirect('home'); 
            }
           
         }
@@ -335,6 +352,34 @@
 	  		redirect('home');
 	  	}
 	  }
+
+	  public function emailSubscribe()
+	  {
+		$email = $this->input->post('email');
+		$data = array('email' => $email);
+		$insertdata = $this->subscribemodel->insert($data);
+		if($insertdata)
+		{
+			$subject = "Promoteads Subscriptions";
+		   	$message = "<html>
+	                       <body>
+	                        <div style='width: 640px;height: 230px;background-color: #d0cfcf;padding: 20px;font-size: 20px;text-align: center;'>
+	                           <img src='https://i.imgsafe.org/bb8d8a3854.png' width='100' height='70' />
+	                           <h3>E-mail Subscriptions</h3>
+	                           <p>
+	                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+	                           </p>
+	                        </div>
+	                       </body>
+	                      </html>
+	                      ";
+	         
+	         $this->_sendEmail($email,$subject,$message);
+             $this->session->set_flashdata('emailsentsucess','Your subscribe sucessfully in Promoteads');
+	         redirect('home');
+	   }
+	  }
+
       private function _sendEmail($email,$subject,$message)
       {
 	      $config = array();
@@ -351,7 +396,7 @@
 	      $config['wordwrap'] = TRUE;
 	      $this->load->library('email');
 	      $this->email->initialize($config);
-	      $this->email->from('vsv1414@gmail.com');
+	      $this->email->from('promoteads@newbiesoftsolutions.com');
 	      $this->email->to($email);
 	      $this->email->subject($subject);
 	      $this->email->message($message);

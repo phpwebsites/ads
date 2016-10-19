@@ -8,6 +8,7 @@
          $this->load->library('form_validation');
 		 $this->load->library('session');
 		 $this->load->model('adminusermodel');
+		 $this->load->model('subscribemodel');
          
       }
 	  
@@ -110,6 +111,14 @@
 	  	$this->adminusermodel->deleterecord($id);
 	  	$this->session->set_flashdata('msg','user deleted sucessfully'); 
 	  	redirect('admin/registerusers');
+	  }
+
+	  public function getsubscribers()
+	  {
+	  	$data['result'] = $this->subscribemodel->getallusers();
+	  	$this->load->view('admin/includes/header');
+	  	$this->load->view('admin/subscribers/index',$data);
+	  	$this->load->view('admin/includes/footer');
 	  }
 
 	  

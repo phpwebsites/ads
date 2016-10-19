@@ -120,6 +120,10 @@
 
                         </ul>
                     </li>
+                <li>
+                    <a href="<?php echo base_url('subscribeusers'); ?>"><i class="fa fa-tags"></i> Subscribe Users</a>
+                </li>
+
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#ads"><i class="fa fa-inr"></i> Transactions <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="ads" class="collapse">

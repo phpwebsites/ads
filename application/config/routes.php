@@ -57,6 +57,7 @@ $route['admin/delete/:any'] = "admin/UserController/deleteuser";
 $route['admin/updateform/:any'] = "admin/UserController/updateform";
 $route['admin/updateuser'] = "admin/UserController/updateinsert";
 $route['admin/registerusers'] = "admin/UserController/registerdusers";
+$route['subscribeusers'] = "admin/UserController/getsubscribers";
 /*########### Locations ######################### */
 $route['country/show'] = "admin/CountryController/index";
 $route['country/add'] = "admin/CountryController/add";
@@ -160,6 +161,10 @@ $route['freeads'] = "admin/PaymentController/freeads";
 $route['freeactive/:any'] = "admin/PaymentController/freeactive";
 $route['freeinactive/:any'] = "admin/PaymentController/freeinactive";
 /* ################# Transactions End ################# */
+
+/* ################# Subscribe ################# */
+$route['emailsubscribe'] = "UserController/emailSubscribe";
+/* ################# Subscribe End ################# */
 
 $route['404_override'] = '';
 
